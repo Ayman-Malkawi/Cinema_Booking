@@ -1,6 +1,4 @@
-using CoreApiProject.Server.Habib.HabibInterFace;
-using CoreApiProject.Server.Habib.HabibService;
-using CoreApiProject.Server.Models;
+
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,10 +9,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<MyDbContext>(options =>
-	options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
 
-builder.Services.AddScoped<IDataservaceUser, DataserviceUsercs>();
+
 
 var app = builder.Build();
 
