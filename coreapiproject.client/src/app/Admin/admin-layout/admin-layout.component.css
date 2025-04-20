@@ -1,0 +1,11 @@
+.admin-container {
+  display: grid;
+  grid-template-columns: auto 1fr; /* العمود الأول يتناسب مع المحتوى، الثاني يأخذ المساحة المتبقية */
+  min-height: 100vh;
+}
+
+app-side-bar {
+  width: 250px;
+  background: #f0f0f0;
+}
+

@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,18 @@ import { LogInComponent } from './log-in/log-in.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { RegisterComponent } from './register/register.component';
+import { SideBarComponent } from './Admin/side-bar/side-bar.component';
+import { DashBoardComponent } from './Admin/dash-board/dash-board.component';
+import { AdminLayoutComponent } from './Admin/admin-layout/admin-layout.component';
+import { UsersComponent } from './Admin/users/users.component';
+import { CategoryComponent } from './Admin/category/category.component';
+import { AddCategoryComponent } from './Admin/add-category/add-category.component';
+import { EditCategoryComponent } from './Admin/edit-category/edit-category.component';
+import { RouterModule } from '@angular/router';
+import { ManageMovieComponent } from './Admin/manage-movie/manage-movie.component';
+import { AddMoviesComponent } from './Admin/add-movies/add-movies.component';
+import { EditMoviesComponent } from './Admin/edit-movies/edit-movies.component';
+
 
 @NgModule({
   declarations: [
@@ -36,10 +49,20 @@ import { RegisterComponent } from './register/register.component';
     CheckOutComponent,
     AboutUsComponent,
     RegisterComponent,
+    SideBarComponent,
+    DashBoardComponent,
+    AdminLayoutComponent,
+    UsersComponent,
+    CategoryComponent,
+    AddCategoryComponent,
+    EditCategoryComponent,
+    ManageMovieComponent,
+    AddMoviesComponent,
+    EditMoviesComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule, FormsModule, RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

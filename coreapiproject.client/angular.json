@@ -51,7 +51,14 @@
               "src/assets/Shared/css/magnific-popup.css",
               "src/assets/Shared/css/animate.css",
               "src/assets/Shared/css/fontawesome.min.css",
-              "src/assets/Shared/css/bootstrap.min.css"
+              "src/assets/Shared/css/bootstrap.min.css",
+
+
+              "src/assets/AdminAssets/css/admin.css",
+              "src/assets/AdminAssets/css/select2.min.css",
+              "src/assets/AdminAssets/css/magnific-popup.css",
+              "src/assets/AdminAssets/css/bootstrap-grid.min.css",
+              "src/assets/AdminAssets/css/bootstrap-reboot.min.css"
             ],
             "scripts": [
               "src/assets/Shared/js/main.js",
@@ -67,7 +74,15 @@
               "src/assets/Shared/js/bootstrap.bundle.min.js",
               "src/assets/Shared/js/plugins.js",
               "src/assets/Shared/js/modernizr-3.6.0.min.js",
-              "src/assets/Shared/js/jquery-3.6.0.min.js"
+              "src/assets/Shared/js/jquery-3.6.0.min.js",
+
+
+              "src/assets/AdminAssets/js/jquery-3.5.1.min.js",
+              "src/assets/AdminAssets/js/bootstrap.bundle.min.js",
+              "src/assets/AdminAssets/js/jquery.magnific-popup.min.js",
+              "src/assets/AdminAssets/js/smooth-scrollbar.js",
+              "src/assets/AdminAssets/js/select2.min.js",
+              "src/assets/AdminAssets/js/admin.js"
             ]
           },
           "configurations": {
