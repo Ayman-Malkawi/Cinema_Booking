@@ -1,4 +1,7 @@
 
+using CoreApiProject.Server.DataService;
+using CoreApiProject.Server.IDataService;
+using CoreApiProject.Server.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,11 +12,25 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<MyDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
 
+builder.Services.AddScoped<IData, DataS>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+});
 
 
 var app = builder.Build();
-
+app.UseCors("AllowAllOrigins");
 app.UseDefaultFiles();
 app.UseStaticFiles();
 

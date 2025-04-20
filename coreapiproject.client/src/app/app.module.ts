@@ -18,6 +18,8 @@ import { LogInComponent } from './log-in/log-in.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { RegisterComponent } from './register/register.component';
+import { FaqComponent } from './faq/faq.component';
+import { TermsComponent } from './terms/terms.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { RegisterComponent } from './register/register.component';
     CheckOutComponent,
     AboutUsComponent,
     RegisterComponent,
+    FaqComponent,
+    TermsComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,
