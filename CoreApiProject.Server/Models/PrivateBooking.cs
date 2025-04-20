@@ -13,7 +13,7 @@ public partial class PrivateBooking
 
     public int? MovieId { get; set; }
 
-    public DateOnly? BookingDate { get; set; }
+    public DateTime? BookingDate { get; set; }
 
     public DateTime? StartTime { get; set; }
 

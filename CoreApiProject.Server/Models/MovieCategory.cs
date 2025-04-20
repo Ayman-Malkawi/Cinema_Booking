@@ -9,5 +9,7 @@ public partial class MovieCategory
 
     public string? CategoryName { get; set; }
 
+    public bool IsVisible { get; set; }
+
     public virtual ICollection<Movie> Movies { get; set; } = new List<Movie>();
 }

@@ -145,6 +145,7 @@ public partial class MyDbContext : DbContext
 
             entity.Property(e => e.Description).HasMaxLength(500);
             entity.Property(e => e.Image).HasMaxLength(255);
+            entity.Property(e => e.IsViable).HasDefaultValue(true);
             entity.Property(e => e.TicketPrice).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.Title).HasMaxLength(100);
 
@@ -158,6 +159,7 @@ public partial class MyDbContext : DbContext
             entity.HasKey(e => e.Id).HasName("PK__MovieCat__3214EC0785BEC644");
 
             entity.Property(e => e.CategoryName).HasMaxLength(100);
+            entity.Property(e => e.IsVisible).HasDefaultValue(true);
         });
 
         modelBuilder.Entity<Payment>(entity =>
@@ -180,6 +182,7 @@ public partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK__PrivateB__3214EC076C37D6C6");
 
+            entity.Property(e => e.BookingDate).HasColumnType("datetime");
             entity.Property(e => e.EndTime).HasColumnType("datetime");
             entity.Property(e => e.PaymentMethod).HasMaxLength(50);
             entity.Property(e => e.PaymentStatus).HasMaxLength(50);

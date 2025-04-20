@@ -46,7 +46,7 @@ const routes: Routes = [
 
   { path: "faq", component: FaqComponent },
 
-  { path: "Terms", component: TermsComponent }
+  { path: "Terms", component: TermsComponent },
   { path: "register", component: RegisterComponent },
 
 

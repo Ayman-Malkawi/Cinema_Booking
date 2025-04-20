@@ -23,6 +23,8 @@ public partial class Movie
 
     public int? Rating { get; set; }
 
+    public bool IsViable { get; set; }
+
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
 
     public virtual MovieCategory? Category { get; set; }

@@ -43,14 +43,7 @@ namespace CoreApiProject.Server.DataService
             return _context.MovieCategories.ToList();
         }
 
-    public class DataS : IData
-    {
-        private readonly MyDbContext _context;
-
-        public DataS(MyDbContext context)
-        {
-            _context = context;
-        }
+   
 
 
        public List<User> GetAllUsers()
@@ -115,7 +108,7 @@ namespace CoreApiProject.Server.DataService
             // إذا كان المستخدم ليس مشرفًا، يتم تصفية الفئات بحيث يتم إظهار فقط الفئات التي تكون مرئية
             if (!isAdmin)
             {
-                categoriesQuery = categoriesQuery.Where(c => c.IsVisible);
+                //categoriesQuery = categoriesQuery.Where(c => c.IsVisible);
             }
 
             var categories = categoriesQuery.ToList();
