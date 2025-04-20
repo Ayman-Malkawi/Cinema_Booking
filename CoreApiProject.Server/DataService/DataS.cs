@@ -297,5 +297,100 @@ namespace CoreApiProject.Server.DataService
 
 
 
+
+
+        // PrivateRoom
+
+        public List<PrivateBookingDTO> GetAll()
+        {
+            try
+            {
+                return _context.PrivateBookings
+                    .Select(b => new PrivateBookingDTO
+                    {
+                        Id = b.Id, // ✅ هذا هو السطر اللي كان ناقص
+                        UserId = b.UserId,
+                        PrivateRoomId = b.PrivateRoomId,
+                        MovieId = b.MovieId,
+                        StartTime = b.StartTime,
+                        EndTime = b.EndTime,
+                        TotalPrice = b.TotalPrice,
+                        PaymentMethod = b.PaymentMethod
+                    }).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return new List<PrivateBookingDTO>();
+            }
+        }
+
+
+
+
+
+        public PrivateBookingDTO GetById(int id)
+        {
+            var booking = _context.PrivateBookings.FirstOrDefault(b => b.Id == id);
+            if (booking == null) return null;
+
+            return new PrivateBookingDTO
+            {
+                Id = booking.Id,
+                UserId = booking.UserId,
+                PrivateRoomId = booking.PrivateRoomId,
+                MovieId = booking.MovieId,
+                StartTime = booking.StartTime,
+                EndTime = booking.EndTime,
+                TotalPrice = booking.TotalPrice,
+                PaymentMethod = booking.PaymentMethod
+            };
+
+        }
+
+        public void Add(PrivateBookingDTO dto)
+        {
+            var booking = new PrivateBooking
+            {
+                UserId = dto.UserId,
+                PrivateRoomId = dto.PrivateRoomId,
+                MovieId = dto.MovieId,
+                StartTime = dto.StartTime,
+                EndTime = dto.EndTime,
+                TotalPrice = dto.TotalPrice,
+                PaymentMethod = dto.PaymentMethod
+            };
+
+            _context.PrivateBookings.Add(booking);
+            _context.SaveChanges();
+        }
+
+        public void Update(int id, PrivateBookingDTO dto)
+        {
+            var existing = _context.PrivateBookings.FirstOrDefault(b => b.Id == id);
+            if (existing == null) return;
+
+            existing.UserId = dto.UserId;
+            existing.PrivateRoomId = dto.PrivateRoomId;
+            existing.MovieId = dto.MovieId;
+            existing.StartTime = dto.StartTime;
+            existing.EndTime = dto.EndTime;
+            existing.TotalPrice = dto.TotalPrice;
+            existing.PaymentMethod = dto.PaymentMethod;
+
+            _context.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var booking = _context.PrivateBookings.FirstOrDefault(b => b.Id == id);
+            if (booking != null)
+            {
+                _context.PrivateBookings.Remove(booking);
+                _context.SaveChanges();
+            }
+        }
+
+
     }
 }

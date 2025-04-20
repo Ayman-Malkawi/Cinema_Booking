@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { UrlService } from '../ClientService/url.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, Observable, tap, throwError } from 'rxjs';
+import { PrivateBookingDTO } from '../Admin/private-room/private-room.component';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class AUrlService {
 
   private userApi = 'https://localhost:7057/api/User/getAllUsers';
   private categoryApi = 'https://localhost:7057/api/MovieCategory';
-  private movieApi = 'https://localhost:7057/api/Movie'; 
+  private movieApi = 'https://localhost:7057/api/Movie';
+  private privateBooking = 'https://localhost:7057/api/PrivateRoom';
 
 
   constructor(private http: HttpClient) { }
@@ -90,8 +92,25 @@ export class AUrlService {
 
 
 
+  // private Rooms
+  getAll(): Observable<PrivateBookingDTO[]> {
+    return this.http.get<PrivateBookingDTO[]>(`${this.privateBooking}/AllPrivateRooms`);  // هنا تم التعديل
+  }
 
+  getById(id: number): Observable<PrivateBookingDTO> {
+    return this.http.get<PrivateBookingDTO>(`${this.privateBooking}/GetById/${id}`);
+  }
 
+  add(booking: PrivateBookingDTO): Observable<any> {
+    return this.http.post(`${this.privateBooking}/Add`, booking);
+  }
 
+  update(id: number, booking: PrivateBookingDTO): Observable<any> {
+    return this.http.put(`${this.privateBooking}/Update/${id}`, booking);
+  }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete(`${this.privateBooking}/Delete/${id}`);
+  }
 
 }

@@ -17,7 +17,7 @@ namespace CoreApiProject.Server.IDataService
         public void AddCategory(MovieCategoryDTO dto);
         //public void DeleteCategory(int id, bool isAdmin);
 
-        void EditCategory(int id, MovieCategoryDTO dto);
+        public void EditCategory(int id, MovieCategoryDTO dto);
 
 
 
@@ -41,7 +41,13 @@ namespace CoreApiProject.Server.IDataService
 
 
 
+        public List<PrivateBookingDTO> GetAll();
+        public PrivateBookingDTO GetById(int id);
 
+        public void Add(PrivateBookingDTO dto);
+
+        public void Update(int id, PrivateBookingDTO dto);
+        public void Delete(int id);
 
 
     }

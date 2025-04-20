@@ -30,6 +30,8 @@ import { RouterModule } from '@angular/router';
 import { ManageMovieComponent } from './Admin/manage-movie/manage-movie.component';
 import { AddMoviesComponent } from './Admin/add-movies/add-movies.component';
 import { EditMoviesComponent } from './Admin/edit-movies/edit-movies.component';
+import { PrivateRoomComponent } from './Admin/private-room/private-room.component';
+import { AddPrivateBookComponent } from './Admin/add-private-book/add-private-book.component';
 
 
 @NgModule({
@@ -59,6 +61,8 @@ import { EditMoviesComponent } from './Admin/edit-movies/edit-movies.component';
     ManageMovieComponent,
     AddMoviesComponent,
     EditMoviesComponent,
+    PrivateRoomComponent,
+    AddPrivateBookComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,

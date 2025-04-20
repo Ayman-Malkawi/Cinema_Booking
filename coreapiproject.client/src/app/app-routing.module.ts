@@ -18,6 +18,8 @@ import { AddCategoryComponent } from './Admin/add-category/add-category.componen
 import { ManageMovieComponent } from './Admin/manage-movie/manage-movie.component';
 import { EditMoviesComponent } from './Admin/edit-movies/edit-movies.component';
 import { AddMoviesComponent } from './Admin/add-movies/add-movies.component';
+import { PrivateRoomComponent } from './Admin/private-room/private-room.component';
+import { AddPrivateBookComponent } from './Admin/add-private-book/add-private-book.component';
 
 
 const routes: Routes = [
@@ -54,6 +56,10 @@ const routes: Routes = [
       { path: "ManageMovie", component: ManageMovieComponent },
       { path: "add-movie", component: AddMoviesComponent },
       { path: "edit-movie/:id", component: EditMoviesComponent },
+      { path: "privateRooms", component: PrivateRoomComponent },
+      { path: "addRooms", component: AddPrivateBookComponent },
+
+
 
 
     ]
