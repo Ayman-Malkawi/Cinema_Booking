@@ -19,6 +19,8 @@ import { LogInComponent } from './log-in/log-in.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { RegisterComponent } from './register/register.component';
+import { FaqComponent } from './faq/faq.component';
+import { TermsComponent } from './terms/terms.component';
 import { SideBarComponent } from './Admin/side-bar/side-bar.component';
 import { DashBoardComponent } from './Admin/dash-board/dash-board.component';
 import { AdminLayoutComponent } from './Admin/admin-layout/admin-layout.component';
@@ -55,6 +57,8 @@ import { PrivateBookingListComponent } from './Admin/private-booking-list/privat
     CheckOutComponent,
     AboutUsComponent,
     RegisterComponent,
+    FaqComponent,
+    TermsComponent,
     SideBarComponent,
     DashBoardComponent,
     AdminLayoutComponent,

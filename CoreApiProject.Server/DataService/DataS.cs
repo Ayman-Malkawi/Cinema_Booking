@@ -1,4 +1,6 @@
-﻿using CoreApiProject.Server.DTORequest;
+﻿using CoreApiProject.Server.Models;
+
+using CoreApiProject.Server.DTORequest;
 using CoreApiProject.Server.IDataService;
 using CoreApiProject.Server.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -6,15 +8,45 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CoreApiProject.Server.DataService
 {
-    public class DataS : IData
+    public class DataS : IDataService.IData
     {
         private readonly MyDbContext _context;
 
         public DataS(MyDbContext context)
         {
+
             _context = context;
+
         }
 
+
+        public List<Movie> GetMovies()
+        {
+
+            var gets = _context.Movies.ToList();
+            return gets;
+
+        }
+
+        public List<Movie> GetMoviesByCategory(int categoryId)
+        {
+
+            var movies = _context.Movies.Where(m => m.CategoryId == categoryId).ToList();
+
+            return movies;
+
+
+        }
+
+        public List<MovieCategory> GetAllCategories()
+        {
+            return _context.MovieCategories.ToList();
+        }
+
+   
+
+
+       public List<User> GetAllUsers()
 
         public List<User> GetAllUsers()
         {
@@ -78,7 +110,7 @@ namespace CoreApiProject.Server.DataService
             // إذا كان المستخدم ليس مشرفًا، يتم تصفية الفئات بحيث يتم إظهار فقط الفئات التي تكون مرئية
             if (!isAdmin)
             {
-                categoriesQuery = categoriesQuery.Where(c => c.IsVisible);
+                //categoriesQuery = categoriesQuery.Where(c => c.IsVisible);
             }
 
             var categories = categoriesQuery.ToList();

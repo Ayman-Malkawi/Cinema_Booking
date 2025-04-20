@@ -1,10 +1,18 @@
-﻿using CoreApiProject.Server.DTORequest;
+﻿using System.Collections.Generic;
+using CoreApiProject.Server.Models;
+
+using CoreApiProject.Server.DTORequest;
 using CoreApiProject.Server.Models;
 
 namespace CoreApiProject.Server.IDataService
 {
     public interface IData 
     {
+        public List<Movie> GetMovies();
+
+        public List<Movie> GetMoviesByCategory(int categoryId);
+        public List<MovieCategory> GetAllCategories();
+
         public List<User> GetAllUsers();
 
         public User GetUserById(int id);
