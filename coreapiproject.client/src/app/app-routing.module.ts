@@ -11,6 +11,17 @@ import { BookingForSeatComponent } from './booking-for-seat/booking-for-seat.com
 import { RegisterComponent } from './register/register.component';
 import { FaqComponent } from './faq/faq.component';
 import { TermsComponent } from './terms/terms.component';
+import { DashBoardComponent } from './Admin/dash-board/dash-board.component';
+import { AdminLayoutComponent } from './Admin/admin-layout/admin-layout.component';
+import { UsersComponent } from './Admin/users/users.component';
+import { CategoryComponent } from './Admin/category/category.component';
+import { EditCategoryComponent } from './Admin/edit-category/edit-category.component';
+import { AddCategoryComponent } from './Admin/add-category/add-category.component';
+import { ManageMovieComponent } from './Admin/manage-movie/manage-movie.component';
+import { EditMoviesComponent } from './Admin/edit-movies/edit-movies.component';
+import { AddMoviesComponent } from './Admin/add-movies/add-movies.component';
+import { PrivateRoomComponent } from './Admin/private-room/private-room.component';
+import { AddPrivateBookComponent } from './Admin/add-private-book/add-private-book.component';
 
 
 const routes: Routes = [
@@ -36,6 +47,34 @@ const routes: Routes = [
   { path: "faq", component: FaqComponent },
 
   { path: "Terms", component: TermsComponent }
+  { path: "register", component: RegisterComponent },
+
+
+  {
+    path: "admin",
+    component: AdminLayoutComponent,
+    children: [
+      { path: "", component: DashBoardComponent },
+      { path: "dashboard", component: DashBoardComponent },
+      { path: "users", component: UsersComponent },
+      { path: "cat", component: CategoryComponent },
+      { path: "add-category", component: AddCategoryComponent },
+      { path: "edit-category/:id", component: EditCategoryComponent },
+      { path: "ManageMovie", component: ManageMovieComponent },
+      { path: "add-movie", component: AddMoviesComponent },
+      { path: "edit-movie/:id", component: EditMoviesComponent },
+      { path: "privateRooms", component: PrivateRoomComponent },
+      { path: "addRooms", component: AddPrivateBookComponent },
+
+
+
+
+    ]
+  }
+
+
+
+
 ];
 
 @NgModule({
