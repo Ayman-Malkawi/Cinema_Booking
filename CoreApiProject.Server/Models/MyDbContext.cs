@@ -217,9 +217,7 @@ public partial class MyDbContext : DbContext
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("VIPPrice");
 
-            entity.HasOne(d => d.Room).WithMany(p => p.PrivateRooms)
-                .HasForeignKey(d => d.RoomId)
-                .HasConstraintName("FK__PrivateRo__RoomI__5629CD9C");
+           
         });
 
         modelBuilder.Entity<Review>(entity =>

@@ -3,7 +3,7 @@ using CoreApiProject.Server.Models;
 
 namespace CoreApiProject.Server.IDataService
 {
-    public interface IData
+    public interface IData 
     {
         public List<User> GetAllUsers();
 
@@ -41,13 +41,26 @@ namespace CoreApiProject.Server.IDataService
 
 
 
-        public List<PrivateBookingDTO> GetAll();
-        public PrivateBookingDTO GetById(int id);
+        public List<PrivateBookingViewDTO> GetAll();
+        //public PrivateBookingDTO GetById(int id);
 
-        public void Add(PrivateBookingDTO dto);
+        //public void Add(PrivateBookingDTO dto);
 
-        public void Update(int id, PrivateBookingDTO dto);
-        public void Delete(int id);
+        //public void Update(int id, PrivateBookingDTO dto);
+        //public void Delete(int id);
+
+
+
+        public List<PrivateRoomDTO1> GetAllPrivateRooms();
+
+        public void AddPrivateRoom(PrivateRoomDTO1 dto);
+
+
+        public List<PrivateRoomWithAvailabilityDto> GetPrivateRoomsWithAvailability();
+
+
+        public void AddPrivateRoomWithAvailability(PrivateRoomWithAvailabilityDto dto);
+
 
 
     }

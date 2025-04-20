@@ -1,0 +1,59 @@
+<div class="container my-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Private Rooms</h2>
+    <button class="btn btn-primary" [routerLink]="['/admin/AddPrivateRooms']">
+      <i class="fas fa-plus me-1"></i> Add Private Room
+    </button>
+  </div>
+
+  <div *ngIf="privateRooms && privateRooms.length > 0; else noRooms">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle">
+        <thead class="table-dark text-center">
+          <tr>
+            <th>Room Name</th>
+            <th>VIP Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Capacity</th>
+            <th>Availability</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr *ngFor="let room of privateRooms">
+            <td>{{ room.roomName }}</td>
+            <td>{{ room.vipName }}</td>
+            <td>{{ room.vipDescription }}</td>
+            <td>{{ room.vipPrice | currency:'JOD' }}</td>
+            <td>{{ room.capacity }}</td>
+            <td>
+              <div *ngIf="room.availability?.length > 0; else noAvailability">
+                <ul class="list-unstyled text-start mb-0">
+                  <li *ngFor="let slot of room.availability">
+                    <i class="fas fa-clock text-success me-1"></i>
+                    <strong>{{ slot.availableDay }}</strong>: {{ slot.startTime }} - {{ slot.endTime }}
+                  </li>
+                </ul>
+              </div>
+              <ng-template #noAvailability>
+                <span class="text-muted">No availability set.</span>
+              </ng-template>
+            </td>
+            <td>
+              <button class="btn btn-outline-info btn-sm" [routerLink]="['/admin/manage-availability', room.id]">
+                <i class="fas fa-calendar-alt me-1"></i> Manage
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <ng-template #noRooms>
+    <div class="alert alert-warning text-center mt-4">
+      <i class="fas fa-info-circle me-2"></i> No private rooms available.
+    </div>
+  </ng-template>
+</div>

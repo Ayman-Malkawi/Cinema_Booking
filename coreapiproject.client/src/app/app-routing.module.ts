@@ -20,6 +20,10 @@ import { EditMoviesComponent } from './Admin/edit-movies/edit-movies.component';
 import { AddMoviesComponent } from './Admin/add-movies/add-movies.component';
 import { PrivateRoomComponent } from './Admin/private-room/private-room.component';
 import { AddPrivateBookComponent } from './Admin/add-private-book/add-private-book.component';
+import { PrivateRoomsComponent } from './Admin/private-rooms/private-rooms.component';
+import { AddPrivateRoomComponent } from './Admin/add-private-room/add-private-room.component';
+import { ManageRoomAvailabilityComponent } from './Admin/manage-room-availability/manage-room-availability.component';
+import { PrivateBookingListComponent } from './Admin/private-booking-list/private-booking-list.component';
 
 
 const routes: Routes = [
@@ -56,9 +60,12 @@ const routes: Routes = [
       { path: "ManageMovie", component: ManageMovieComponent },
       { path: "add-movie", component: AddMoviesComponent },
       { path: "edit-movie/:id", component: EditMoviesComponent },
-      { path: "privateRooms", component: PrivateRoomComponent },
+      //{ path: "privateRoomBook", component: PrivateRoomComponent },
       { path: "addRooms", component: AddPrivateBookComponent },
-
+      { path: "privateRooms", component: PrivateRoomsComponent },
+      { path: "AddPrivateRooms", component: AddPrivateRoomComponent },
+      { path: 'manage-availability/:id', component: ManageRoomAvailabilityComponent },
+      { path: 'privateRoomBook', component: PrivateBookingListComponent }
 
 
 

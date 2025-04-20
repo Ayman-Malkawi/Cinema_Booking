@@ -32,6 +32,10 @@ import { AddMoviesComponent } from './Admin/add-movies/add-movies.component';
 import { EditMoviesComponent } from './Admin/edit-movies/edit-movies.component';
 import { PrivateRoomComponent } from './Admin/private-room/private-room.component';
 import { AddPrivateBookComponent } from './Admin/add-private-book/add-private-book.component';
+import { PrivateRoomsComponent } from './Admin/private-rooms/private-rooms.component';
+import { AddPrivateRoomComponent } from './Admin/add-private-room/add-private-room.component';
+import { ManageRoomAvailabilityComponent } from './Admin/manage-room-availability/manage-room-availability.component';
+import { PrivateBookingListComponent } from './Admin/private-booking-list/private-booking-list.component';
 
 
 @NgModule({
@@ -63,10 +67,14 @@ import { AddPrivateBookComponent } from './Admin/add-private-book/add-private-bo
     EditMoviesComponent,
     PrivateRoomComponent,
     AddPrivateBookComponent,
+    PrivateRoomsComponent,
+    AddPrivateRoomComponent,
+    ManageRoomAvailabilityComponent,
+    PrivateBookingListComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule, FormsModule, RouterModule
+    AppRoutingModule, FormsModule, RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

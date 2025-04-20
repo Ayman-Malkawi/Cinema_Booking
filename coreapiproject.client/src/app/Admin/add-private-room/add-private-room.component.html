@@ -1,0 +1,68 @@
+<div class="container my-4">
+  <div class="card shadow">
+    <div class="card-header bg-success text-white">
+      <h2 class="mb-0">Add New Private Room</h2>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="addRoom()">
+        <!-- Room ID -->
+        <div class="mb-3">
+          <label for="roomId" class="form-label">Room ID</label>
+          <input type="number" id="roomId" class="form-control" [(ngModel)]="privateRoom.roomId" name="roomId" required>
+        </div>
+
+        <!-- Room Name -->
+        <div class="mb-3">
+          <label for="roomName" class="form-label">Room Name</label>
+          <input type="text" id="roomName" class="form-control" [(ngModel)]="privateRoom.roomName" name="roomName" required>
+        </div>
+
+        <!-- VIP Name -->
+        <div class="mb-3">
+          <label for="vipName" class="form-label">VIP Name</label>
+          <input type="text" id="vipName" class="form-control" [(ngModel)]="privateRoom.vipName" name="vipName" required>
+        </div>
+
+        <!-- VIP Description -->
+        <div class="mb-3">
+          <label for="vipDescription" class="form-label">Description</label>
+          <textarea id="vipDescription" class="form-control" [(ngModel)]="privateRoom.vipDescription" name="vipDescription" required></textarea>
+        </div>
+
+        <!-- VIP Price -->
+        <div class="mb-3">
+          <label for="vipPrice" class="form-label">VIP Price</label>
+          <input type="number" id="vipPrice" class="form-control" [(ngModel)]="privateRoom.vipPrice" name="vipPrice" required>
+        </div>
+
+        <!-- Capacity -->
+        <div class="mb-3">
+          <label for="capacity" class="form-label">Capacity</label>
+          <input type="number" id="capacity" class="form-control" [(ngModel)]="privateRoom.capacity" name="capacity" required>
+        </div>
+
+        <!-- Availability -->
+        <h5>Room Availability</h5>
+        <div *ngFor="let slot of privateRoom.availability; let i = index" class="row mb-2">
+          <div class="col">
+            <input class="form-control" placeholder="Day (e.g., Monday)" [(ngModel)]="slot.availableDay" name="availableDay{{i}}" required>
+          </div>
+          <div class="col">
+            <input type="time" class="form-control" [(ngModel)]="slot.startTime" name="startTime{{i}}" required>
+          </div>
+          <div class="col">
+            <input type="time" class="form-control" [(ngModel)]="slot.endTime" name="endTime{{i}}" required>
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-danger" (click)="removeAvailability(i)">X</button>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-secondary mb-3" (click)="addAvailabilityRow()">Add Time Slot</button>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-success">Add Room</button>
+      </form>
+    </div>
+  </div>
+</div>

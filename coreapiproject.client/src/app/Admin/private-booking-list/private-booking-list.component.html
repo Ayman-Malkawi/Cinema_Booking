@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <h2 class="mb-3">All Private Bookings</h2>
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Movie Name</th>
+        <th>Room Name</th>
+        <th>Booking Date</th>
+        <th>Total Price</th>
+        <th>Payment Status</th>
+        <th>Booking Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookings">
+        <td>{{ booking.movieName }}</td>
+        <td>{{ booking.roomName }}</td>
+        <td>{{ booking.bookingDate }}</td>
+        <td>{{ booking.totalPrice }} JD</td>
+        <td>{{ booking.paymentStatus }}</td>
+        <td>{{ booking.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
