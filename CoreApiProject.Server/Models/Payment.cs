@@ -17,5 +17,9 @@ public partial class Payment
 
     public string? PaymentStatus { get; set; }
 
+    public int? PrivateBookingId { get; set; }
+
     public virtual Booking? Booking { get; set; }
+
+    public virtual PrivateBooking? PrivateBooking { get; set; }
 }

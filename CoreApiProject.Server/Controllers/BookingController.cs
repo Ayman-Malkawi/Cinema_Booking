@@ -1,7 +1,6 @@
-﻿using CoreApiProject.Server.DTORequest;
+﻿using CoreApiProject.Server.DTO;
 using CoreApiProject.Server.IDataService;
 using CoreApiProject.Server.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreApiProject.Server.Controllers
@@ -10,46 +9,38 @@ namespace CoreApiProject.Server.Controllers
     [ApiController]
     public class BookingController : ControllerBase
     {
-        private readonly IData _data;
-        public BookingController(IData data)
+        private readonly IBookingService _bookingService;
+
+        public BookingController(IBookingService bookingService) { _bookingService = bookingService; }
+
+
+  
+
+        [HttpPost("Create")]
+        public async Task<IActionResult> CreateBooking([FromBody] BookingCreateDto dto)
         {
-            _data = data;
+            var result = await _bookingService.CreateBookingAsync(dto);
+            return Ok(result);
         }
 
-        [HttpPost("book-public-room")]
-        public IActionResult BookPublicRoom([FromBody] PublicBookingDTO dto)
+        [HttpGet("MyBookings/{userId}")]
+        public async Task<IActionResult> GetUserBookings(int userId)
         {
-            var booking = new Booking
-            {
-                UserId = dto.UserId,
-                RoomId = dto.RoomId,
-                MovieId = dto.MovieId,
-                StartTime = dto.StartTime,
-                EndTime = dto.EndTime,
-                TotalPrice = dto.TotalPrice,
-                PaymentMethod = dto.PaymentMethod,
-                PaymentStatus = "Pending"
-            };
-
-            // تنفيذ العملية بشكل متزامن
-            _data.AddBooking(booking);
-            return Ok("Room booked successfully!");
-        }
-
-        [HttpGet("all")]
-        public IActionResult GetAllBookings()
-        {
-            var bookings = _data.GetAllBookings();
+            var bookings = await _bookingService.GetBookingsByUserIdAsync(userId);
             return Ok(bookings);
         }
 
-        [HttpPut("cancel/{id}")]
-        public IActionResult CancelBooking(int id)
+        [HttpPut("Cancel/{id}")]
+        public async Task<IActionResult> CancelBooking(int id)
         {
-            _data.CancelBooking(id);
-            return Ok("Booking canceled.");
+            var result = await _bookingService.CancelBookingAsync(id);
+            if (result == null)
+                return NotFound();
+
+            return Ok(result);
         }
 
+        
 
     }
 }

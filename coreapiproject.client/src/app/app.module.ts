@@ -1,7 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +18,15 @@ import { LogInComponent } from './log-in/log-in.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { RegisterComponent } from './register/register.component';
+import { ShowTimingComponent } from './adnan/show-timing/show-timing.component';
+import { SeatSelectionComponent } from './adnan/seat-selection/seat-selection.component';
+import { PaymentComponent } from './adnan/payment/payment.component';
+import { ETicketComponent } from './adnan/e-ticket/e-ticket.component';
+import { ProfileComponent } from './profile/profile.component';
+import { FormsModule } from '@angular/forms';
+import { AddRatingForMoviesComponent } from './add-rating-for-movies/add-rating-for-movies.component';
+import { FaqComponent } from './faq/faq.component';
+import { TermsComponent } from './terms/terms.component';
 import { SideBarComponent } from './Admin/side-bar/side-bar.component';
 import { DashBoardComponent } from './Admin/dash-board/dash-board.component';
 import { AdminLayoutComponent } from './Admin/admin-layout/admin-layout.component';
@@ -34,6 +42,13 @@ import { ShowFeedBackComponent } from './Admin/show-feedback/show-feed-back.comp
 import { AddRoomsComponent } from './Admin/add-rooms/add-rooms.component';
 import { ShowAllRoomsComponent } from './Admin/show-all-rooms/show-all-rooms.component';
 import { RoomAvailabilityComponent } from './Admin/room-availability/room-availability.component';
+
+import { PrivateRoomComponent } from './Admin/private-room/private-room.component';
+import { AddPrivateBookComponent } from './Admin/add-private-book/add-private-book.component';
+import { PrivateRoomsComponent } from './Admin/private-rooms/private-rooms.component';
+import { AddPrivateRoomComponent } from './Admin/add-private-room/add-private-room.component';
+import { ManageRoomAvailabilityComponent } from './Admin/manage-room-availability/manage-room-availability.component';
+import { PrivateBookingListComponent } from './Admin/private-booking-list/private-booking-list.component';
 
 
 
@@ -54,6 +69,16 @@ import { RoomAvailabilityComponent } from './Admin/room-availability/room-availa
     CheckOutComponent,
     AboutUsComponent,
     RegisterComponent,
+    ShowTimingComponent,
+    SeatSelectionComponent,
+    PaymentComponent,
+    ETicketComponent,
+    
+    
+    ProfileComponent,
+    AddRatingForMoviesComponent,
+    FaqComponent,
+    TermsComponent,
     SideBarComponent,
     DashBoardComponent,
     AdminLayoutComponent,
@@ -68,10 +93,17 @@ import { RoomAvailabilityComponent } from './Admin/room-availability/room-availa
     AddRoomsComponent,
     ShowAllRoomsComponent,
     RoomAvailabilityComponent,
+    PrivateRoomComponent,
+    AddPrivateBookComponent,
+    PrivateRoomsComponent,
+    AddPrivateRoomComponent,
+    ManageRoomAvailabilityComponent,
+    PrivateBookingListComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule, FormsModule, RouterModule
+    AppRoutingModule, FormsModule
+   , RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

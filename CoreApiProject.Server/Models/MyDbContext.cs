@@ -74,6 +74,15 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.EndTime).HasColumnType("datetime");
             entity.Property(e => e.PaymentMethod).HasMaxLength(50);
             entity.Property(e => e.PaymentStatus).HasMaxLength(50);
+            entity.Property(e => e.Seat1)
+                .HasMaxLength(10)
+                .IsUnicode(false);
+            entity.Property(e => e.Seat2)
+                .HasMaxLength(10)
+                .IsUnicode(false);
+            entity.Property(e => e.Seat3)
+                .HasMaxLength(10)
+                .IsUnicode(false);
             entity.Property(e => e.StartTime).HasColumnType("datetime");
             entity.Property(e => e.TotalPrice).HasColumnType("decimal(10, 2)");
 

@@ -17,8 +17,6 @@ public partial class Room
 
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
 
-    public virtual ICollection<PrivateRoom> PrivateRooms { get; set; } = new List<PrivateRoom>();
-
     public virtual ICollection<RoomAvailability> RoomAvailabilities { get; set; } = new List<RoomAvailability>();
 
     public virtual ICollection<RoomBooking> RoomBookings { get; set; } = new List<RoomBooking>();

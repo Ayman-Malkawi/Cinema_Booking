@@ -2,6 +2,21 @@ import { Injectable } from '@angular/core';
 import { UrlService } from '../ClientService/url.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, Observable, tap, throwError } from 'rxjs';
+import { PrivateBookingDTO } from '../Admin/private-room/private-room.component';
+
+
+export interface PrivateRoomDTO {
+  id: number;
+  roomId: number;
+  roomName: string;
+  vipName: string;
+  vipDescription: string;
+  vipPrice: number;
+  capacity: number;
+}
+
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +25,9 @@ export class AUrlService {
 
   private userApi = 'https://localhost:7057/api/User/getAllUsers';
   private categoryApi = 'https://localhost:7057/api/MovieCategory';
-  private movieApi = 'https://localhost:7057/api/Movie'; 
+  private movieApi = 'https://localhost:7057/api/Movie';
+  private privateBooking = 'https://localhost:7057/api/PrivateRoom';
+  private baseUrl = 'https://localhost:7057/api/RoomAvailability/GetPrivateRoomsWithAvailability'
 
 
   constructor(private http: HttpClient) { }
@@ -100,6 +117,69 @@ export class AUrlService {
     return this.http.post("https://localhost:7057/api/Contact/FeedBack", data);
 
   }
+
+  // private Rooms
+  getAll(): Observable<PrivateBookingDTO[]> {
+    return this.http.get<PrivateBookingDTO[]>(`${this.privateBooking}/AllPrivateRooms`);  // هنا تم التعديل
+  }
+
+  getById(id: number): Observable<PrivateBookingDTO> {
+    return this.http.get<PrivateBookingDTO>(`${this.privateBooking}/GetById/${id}`);
+  }
+
+  add(booking: PrivateBookingDTO): Observable<any> {
+    return this.http.post(`${this.privateBooking}/Add`, booking);
+  }
+
+  update(id: number, booking: PrivateBookingDTO): Observable<any> {
+    return this.http.put(`${this.privateBooking}/Update/${id}`, booking);
+  }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete(`${this.privateBooking}/Delete/${id}`);
+  }
+
+
+  //private rooms
+
+
+
+  //getAllPrivateRooms(): Observable<any> {
+  //  return this.http.get(this.privateRoom);
+  //}
+
+  getAllPrivateRooms(): Observable<any[]> {
+    return this.http.get<any[]>('https://localhost:7057/api/PrivateRoom/AllPrivateRooms');
+  }
+
+
+  addPrivateRoom(room: PrivateRoomDTO) {
+    return this.http.post('https://localhost:7057/api/PrivateRoom/AddPrivateRoom', room); // غيّر الرابط حسب API تبعك
+  }
+
+
+
+
+
+
+
+  getPrivateRooms(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}`);
+  }
+
+  // دالة لإضافة غرفة خاصة جديدة مع التوافر
+
+
+
+  addPrivateRoomWithAvailability(data: any): Observable<any> {
+    return this.http.post('https://localhost:7057/api/PrivateRoom/AddPrivateRoom', data);
+  }
+
+
+  getAllPrivateBookings(): Observable<any[]> {
+    return this.http.get<any[]>('https://localhost:7057/api/PrivateRoomBookings/AllPrivateBookingsRooms');
+  }
+
 
 
   AddNewRoom(data: any) {

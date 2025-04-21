@@ -11,4 +11,5 @@
         public TimeOnly? EndTime { get; set; }
 
     }
+
 }

@@ -1,4 +1,6 @@
-﻿using CoreApiProject.Server.DTORequest;
+﻿using CoreApiProject.Server.Models;
+
+using CoreApiProject.Server.DTORequest;
 using CoreApiProject.Server.IDataService;
 using CoreApiProject.Server.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -6,22 +8,52 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CoreApiProject.Server.DataService
 {
-    public class DataS : IData
+    public class DataS : IDataService.IData
     {
         private readonly MyDbContext _context;
 
         public DataS(MyDbContext context)
         {
+
             _context = context;
+
         }
 
 
-       public List<User> GetAllUsers()
+        public List<Movie> GetMovies()
         {
-           var AllUsers =  _context.Users.ToList();
-           
+
+            var gets = _context.Movies.ToList();
+            return gets;
+
+        }
+
+        public List<Movie> GetMoviesByCategory(int categoryId)
+        {
+
+            var movies = _context.Movies.Where(m => m.CategoryId == categoryId).ToList();
+
+            return movies;
+
+
+        }
+
+        public List<MovieCategory> GetAllCategories()
+        {
+            return _context.MovieCategories.ToList();
+        }
+
+
+
+
+    
+
+        public List<User> GetAllUsers()
+        {
+            var AllUsers = _context.Users.ToList();
+
             return AllUsers;
-        
+
         }
 
 
@@ -78,7 +110,7 @@ namespace CoreApiProject.Server.DataService
             // إذا كان المستخدم ليس مشرفًا، يتم تصفية الفئات بحيث يتم إظهار فقط الفئات التي تكون مرئية
             if (!isAdmin)
             {
-                categoriesQuery = categoriesQuery.Where(c => c.IsVisible);
+                //categoriesQuery = categoriesQuery.Where(c => c.IsVisible);
             }
 
             var categories = categoriesQuery.ToList();
@@ -393,6 +425,234 @@ namespace CoreApiProject.Server.DataService
             return true;
         }
 
+
+
+
+        // PrivateRoom
+
+        public List<PrivateBookingViewDTO> GetAll()
+        {
+            try
+            {
+                var privateBookings = _context.PrivateBookings
+                    .Include(pb => pb.PrivateRoom)  // تأكد من تحميل بيانات الغرفة الخاصة
+                    .Include(pb => pb.Movie)        // تأكد من تحميل بيانات الفيلم
+                    .Include(pb => pb.User)         // تأكد من تحميل بيانات المستخدم
+                    .Select(pb => new PrivateBookingViewDTO
+                    {
+                        Id = pb.Id,
+                        MovieName = pb.Movie != null ? pb.Movie.Title : "No Movie",   // اسم الفيلم
+                        RoomName = pb.PrivateRoom != null ? pb.PrivateRoom.Vipname : "No Room", // اسم الغرفة
+                        BookingDate = pb.BookingDate.HasValue ? DateOnly.FromDateTime(pb.BookingDate.Value) : DateOnly.MinValue,  // تحويل DateTime إلى DateOnly
+                        TotalPrice = pb.TotalPrice ?? 0,   // السعر
+                        PaymentStatus = pb.PaymentStatus ?? "Unknown",  // حالة الدفع
+                        Status = pb.Status ?? "Pending"    // حالة الحجز
+                    }).ToList();
+
+                return privateBookings;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return new List<PrivateBookingViewDTO>();
+            }
+        }
+
+
+
+
+
+
+
+
+        //public PrivateBookingDTO GetById(int id)
+        //{
+        //    var booking = _context.PrivateBookings.FirstOrDefault(b => b.Id == id);
+        //    if (booking == null) return null;
+
+        //    return new PrivateBookingDTO
+        //    {
+        //        Id = booking.Id,
+        //        UserId = booking.UserId,
+        //        PrivateRoomId = booking.PrivateRoomId,
+        //        MovieId = booking.MovieId,
+        //        StartTime = booking.StartTime,
+        //        EndTime = booking.EndTime,
+        //        TotalPrice = booking.TotalPrice,
+        //        PaymentMethod = booking.PaymentMethod
+        //    };
+
+        //}
+
+        //public void Add(PrivateBookingDTO dto)
+        //{
+        //    var booking = new PrivateBooking
+        //    {
+        //        UserId = dto.UserId,
+        //        PrivateRoomId = dto.PrivateRoomId,
+        //        MovieId = dto.MovieId,
+        //        StartTime = dto.StartTime,
+        //        EndTime = dto.EndTime,
+        //        TotalPrice = dto.TotalPrice,
+        //        PaymentMethod = dto.PaymentMethod
+        //    };
+
+        //    _context.PrivateBookings.Add(booking);
+        //    _context.SaveChanges();
+        //}
+
+        //public void Update(int id, PrivateBookingDTO dto)
+        //{
+        //    var existing = _context.PrivateBookings.FirstOrDefault(b => b.Id == id);
+        //    if (existing == null) return;
+
+        //    existing.UserId = dto.UserId;
+        //    existing.PrivateRoomId = dto.PrivateRoomId;
+        //    existing.MovieId = dto.MovieId;
+        //    existing.StartTime = dto.StartTime;
+        //    existing.EndTime = dto.EndTime;
+        //    existing.TotalPrice = dto.TotalPrice;
+        //    existing.PaymentMethod = dto.PaymentMethod;
+
+        //    _context.SaveChanges();
+        //}
+
+        //public void Delete(int id)
+        //{
+        //    var booking = _context.PrivateBookings.FirstOrDefault(b => b.Id == id);
+        //    if (booking != null)
+        //    {
+        //        _context.PrivateBookings.Remove(booking);
+        //        _context.SaveChanges();
+        //    }
+        //}
+
+
+
+
+
+
+
+        // Private Room operations
+        public List<PrivateRoomDTO1> GetAllPrivateRooms()
+        {
+            return _context.PrivateRooms
+                .Include(pr => pr.RoomAvailabilities) // تأكد من تضمين البيانات المرتبطة
+                .ThenInclude(ra => ra.Room)  // تأكد من تضمين البيانات المرتبطة بالغرف
+                .Select(pr => new PrivateRoomDTO1
+                {
+                    Id = pr.Id,
+                    // إزالة roomId لأنه تم حذفه من قاعدة البيانات
+                    RoomName = pr.RoomAvailabilities != null && pr.RoomAvailabilities.Any()
+                        ? pr.RoomAvailabilities.FirstOrDefault().Room != null
+                            ? pr.RoomAvailabilities.FirstOrDefault().Room.RoomName
+                            : null
+                        : null,
+                    VIPName = pr.Vipname,
+                    VIPDescription = pr.Vipdescription,
+                    VIPPrice = pr.Vipprice ?? 0,
+                    Capacity = pr.Capacity ?? 0
+                })
+                .ToList();
+        }
+
+
+
+
+
+
+
+        public void AddPrivateRoom(PrivateRoomDTO1 dto)
+        {
+            var privateRoom = new PrivateRoom
+            {
+                Vipname = dto.VIPName,
+                Vipdescription = dto.VIPDescription,
+                Vipprice = dto.VIPPrice,
+                Capacity = dto.Capacity,
+                RoomAvailabilities = dto.Availability.Select(a => new RoomAvailability
+                {
+                    AvailableDay = a.AvailableDay,
+                    StartTime = a.StartTime,
+                    EndTime = a.EndTime
+                }).ToList()
+            };
+
+            _context.PrivateRooms.Add(privateRoom);
+            _context.SaveChanges();
+        }
+
+
+
+        //avilablity 
+        public List<PrivateRoomWithAvailabilityDto> GetPrivateRoomsWithAvailability()
+        {
+            var result = _context.PrivateRooms
+                .Include(r => r.RoomAvailabilities)
+                .Select(r => new PrivateRoomWithAvailabilityDto
+                {
+                    Id = r.Id,
+                    // إزالة RoomName بناءً على البيانات المرتبطة (من RoomAvailabilities أو طرق أخرى)
+                    RoomName = r.RoomAvailabilities != null && r.RoomAvailabilities.Any()
+                        ? r.RoomAvailabilities.FirstOrDefault().Room != null
+                            ? r.RoomAvailabilities.FirstOrDefault().Room.RoomName
+                            : null
+                        : null,
+
+                    VipName = r.Vipname,               // تأكد من صحة اسم الحقل في DB
+                    VipDescription = r.Vipdescription, // تأكد من صحة اسم الحقل في DB
+                    VipPrice = r.Vipprice ?? 0,        // تأكد من أنه Nullable عشان تستخدم ?? 0
+                    Capacity = r.Capacity ?? 0,        // تأكد من أنه Nullable عشان لا يحدث مشكلة
+
+                    // لا يتم تضمين RoomId هنا لأنه تم حذفه من قاعدة البيانات
+                    Availability = r.RoomAvailabilities.Select(a => new RoomAvailabilityDTO
+                    {
+                        Id = a.Id,
+                        // إزالة RoomId هنا لأنه غير موجود بعد الآن
+                        PrivateRoomId = a.PrivateRoomId,
+                        AvailableDay = a.AvailableDay,
+                        StartTime = a.StartTime,
+                        EndTime = a.EndTime
+                    }).ToList()
+                })
+                .ToList();
+
+            return result;
+        }
+
+
+
+        public void AddPrivateRoomWithAvailability(PrivateRoomWithAvailabilityDto dto)
+        {
+            var privateRoom = new PrivateRoom
+            {
+                Vipname = dto.VipName,
+                Vipdescription = dto.VipDescription,
+                Vipprice = dto.VipPrice,
+                Capacity = dto.Capacity
+            };
+
+
+
+            _context.PrivateRooms.Add(privateRoom);
+            _context.SaveChanges(); // يحفظ الغرفة أولاً
+
+            // الآن نضيف الـ Availability
+            foreach (var availability in dto.Availability)
+            {
+                var roomAvailability = new RoomAvailability
+                {
+                    PrivateRoomId = privateRoom.Id,
+                    AvailableDay = availability.AvailableDay,
+                    StartTime = availability.StartTime,
+                    EndTime = availability.EndTime
+                };
+
+                _context.RoomAvailabilities.Add(roomAvailability);
+            }
+
+            _context.SaveChanges(); // نحفظ كل الأوقات بعد ما نضيفها
+        }
 
     }
 }
