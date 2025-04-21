@@ -1,0 +1,68 @@
+<!--<div class="cardWrap" *ngIf="bookingData">
+  <div class="card cardLeft">
+    <h1>Ticket <span>Cinema</span></h1>
+
+    <div class="title">
+      <h2>{{ bookingData.movie || 'Not Specified' }}</h2>
+      <span>MOVIE</span>
+    </div>-->
+
+    <!--<div class="name">
+      <h2>{{ bookingData.name || 'Customer' }}</h2>
+      <span>NAME</span>
+    </div>-->
+
+    <!--<div class="seat">
+      <h2>{{ bookingData.seat1 || '' }} {{ bookingData.seat2 ? ', ' + bookingData.seat2 : '' }} {{ bookingData.seat3 ? ', ' + bookingData.seat3 : '' }}</h2>
+      <span>SEAT</span>
+    </div>
+
+    <div class="time">
+      <h2>{{ bookingData.time || '--:--' }}</h2>
+      <span>TIME</span>
+    </div>
+  </div>
+
+  <div class="card cardRight">
+    <div class="eye"></div>-->
+    <!--<div class="number">
+    <h3>{{ bookingData.seat1 || '--' }}</h3>
+    <span>SEAT</span>
+  </div>-->
+    <!--<div class="number">
+      <h3>{{ bookingData.seat1 }}</h3>
+      <span>SEAT</span>
+    </div>
+    <div class="barcode"></div>
+  </div>
+</div>-->
+
+<div *ngFor="let seat of allSeats" class="cardWrap">
+  <div class="card cardLeft">
+    <h1>Ticket <span>Cinema</span></h1>
+
+    <div class="title">
+      <h2>{{ bookingData.movie || 'Not Specified' }}</h2>
+      <span>MOVIE</span>
+    </div>
+
+    <div class="seat">
+      <h2>{{ seat }}</h2>
+      <span>SEAT</span>
+    </div>
+
+    <div class="time">
+      <h2>{{ bookingData.time || '--:--' }}</h2>
+      <span>TIME</span>
+    </div>
+  </div>
+
+  <div class="card cardRight">
+    <div class="eye"></div>
+    <div class="number">
+      <h3>{{ seat }}</h3>
+      <span>SEAT</span>
+    </div>
+    <div class="barcode"></div>
+  </div>
+</div>

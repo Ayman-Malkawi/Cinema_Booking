@@ -18,6 +18,12 @@ import { LogInComponent } from './log-in/log-in.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { RegisterComponent } from './register/register.component';
+import { ShowTimingComponent } from './adnan/show-timing/show-timing.component';
+import { SeatSelectionComponent } from './adnan/seat-selection/seat-selection.component';
+import { PaymentComponent } from './adnan/payment/payment.component';
+import { FormsModule } from '@angular/forms';
+import { ETicketComponent } from './adnan/e-ticket/e-ticket.component';
+
 
 @NgModule({
   declarations: [
@@ -36,10 +42,16 @@ import { RegisterComponent } from './register/register.component';
     CheckOutComponent,
     AboutUsComponent,
     RegisterComponent,
+    ShowTimingComponent,
+    SeatSelectionComponent,
+    PaymentComponent,
+    ETicketComponent,
+    
+    
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

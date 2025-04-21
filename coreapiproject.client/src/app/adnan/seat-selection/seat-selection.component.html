@@ -1,0 +1,37 @@
+<div class="container">
+  <h2 class="text-center my-4">🎟️ Seat Booking</h2>
+
+  <!-- شبكة المقاعد -->
+  <div class="row justify-content-center">
+    <div *ngFor="let row of [].constructor(totalRows); let rowIndex = index" class="d-flex justify-content-center mb-2">
+      <button *ngFor="let col of [].constructor(seatsPerRow); let colIndex = index"
+              class="btn m-1"
+              [ngClass]="{
+                'btn-secondary': !selectedSeats.includes('R' + rowIndex + 'S' + colIndex),
+                'btn-success': selectedSeats.includes('R' + rowIndex + 'S' + colIndex)
+              }"
+              (click)="toggleSeat('R' + rowIndex + 'S' + colIndex)">
+        R{{ rowIndex + 1 }}S{{ colIndex + 1 }}
+      </button>
+    </div>
+  </div>
+
+  <!-- ملخص الحجز -->
+  <div class="mt-4 p-4 border bg-light rounded" *ngIf="selection">
+    <h5 class="text-primary">📋 Booking Summary</h5>
+    <p><strong>🎬 Movie:</strong> {{ selection.movieTitle || 'Not Specified' }}</p>
+    <p><strong>📅 Date:</strong> {{ selection.date | date:'fullDate' }}</p>
+    <p><strong>⏰ Time:</strong> {{ selection.time }}</p>
+    <p><strong>🎥 Screen:</strong> {{ selection.screen }}</p>
+    <p><strong>🪑 Selected Seats:</strong> {{ selectedSeats.length }} seat(s)</p>
+    <p><strong>🧾 Seat List:</strong> {{ selectedSeats.join(', ') || 'None' }}</p>
+    <p><strong>💰 Total Price:</strong> {{ getTotalPrice() }} JOD</p>
+  </div>
+
+  <!-- زر المتابعة -->
+  <div class="text-center mt-4">
+    <button class="btn btn-primary px-4" (click)="proceedToPayment()" [disabled]="selectedSeats.length === 0">
+      Proceed to Payment
+    </button>
+  </div>
+</div>
