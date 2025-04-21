@@ -15,7 +15,7 @@ namespace CoreApiProject.Server.IDataService
         public List<User> GetAllUsers();
 
         public User GetUserById(int id);
-
+        public User? LogIn(LoginDTO user, IHttpContextAccessor httpContextAccessor);
         public void AddToBlacklist(BlacklistDTO dto);
         public void UpdateUser(User user);
 
@@ -74,5 +74,6 @@ namespace CoreApiProject.Server.IDataService
         public List<Room> GetAllRooms();
 
         public bool AddAvailability(RoomAvailabilityDTO Addava);
+        public bool SignUp(SignUpDTO user);
     }
 }

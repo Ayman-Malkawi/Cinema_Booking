@@ -48,7 +48,7 @@ namespace CoreApiProject.Server.DataService
 
     
 
-        public List<User> GetAllUsers()
+       
         public List<User> GetAllUsers()
         {
             var AllUsers = _context.Users.ToList();
@@ -651,6 +651,7 @@ namespace CoreApiProject.Server.DataService
 
                 _context.RoomAvailabilities.Add(roomAvailability);
             }
+        }
         public void Delete(int id)
         {
             var booking = _context.PrivateBookings.FirstOrDefault(b => b.Id == id);
@@ -690,7 +691,7 @@ namespace CoreApiProject.Server.DataService
             }
 
             _context.SaveChanges(); // نحفظ كل الأوقات بعد ما نضيفها
-        }
+        
             return null;
         }
 

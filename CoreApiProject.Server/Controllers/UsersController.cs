@@ -17,7 +17,6 @@ namespace CoreApiProject.Server.Controllers
 		}
 
 		[HttpPut("EditUser/{id}")]
-
 		public IActionResult GetAllUser(int id, Habib.DTOS.DTOEditData _dto)
 		{
 			var user = _dataserviceUserserviceUser.GetAllUserByID(id, _dto); ;
@@ -30,6 +29,7 @@ namespace CoreApiProject.Server.Controllers
 				return NotFound();
 			}
 		}
+
 		[HttpGet("GetAllUsers")]
 		public IActionResult GetAllUsers()
 		{
@@ -43,6 +43,7 @@ namespace CoreApiProject.Server.Controllers
 				return NotFound();
 			}
 		}
+
 		[HttpGet("GetBookingDataByID/{id}")]
 		public IActionResult GetBookingDataByID(int id)
 		{
@@ -56,6 +57,7 @@ namespace CoreApiProject.Server.Controllers
 				return NotFound();
 			}
 		}
+
 		[HttpGet("getUserByID/{id}")]
 		public IActionResult GetUserByID(int id)
 		{
@@ -69,6 +71,7 @@ namespace CoreApiProject.Server.Controllers
 				return NotFound();
 			}
 		}
+
 		[HttpGet("getRates/{id}")]
 		public IActionResult GetRatesbyuserid(int id)
 		{
@@ -82,6 +85,7 @@ namespace CoreApiProject.Server.Controllers
 				return NotFound();
 			}
 		}
+
 		[HttpPut("changepassword/{id}")]
 		public IActionResult ChangePassword(int id, [FromBody] ChangePassword change)
 		{
@@ -95,65 +99,18 @@ namespace CoreApiProject.Server.Controllers
 				return BadRequest("Old and new passwords must be different or old password is incorrect.");
 			}
 		}
-		//---------------------
-		[HttpPost("login")]
-		public IActionResult LogIn([FromBody] LoginDTO user)
-		{
-			if (user == null)
-			{
-				return BadRequest();
-			}
-			else
-			{
-				var userLogIn = _dataserviceUserserviceUser.LogIn(user);
-				if (userLogIn)
-				{
-					return Ok();
-				}
-				else
-				{
-					return NotFound();
-				}
-			}
-		}
 
-		[HttpPost("signUp")]
-		public IActionResult SignUp([FromBody] SignUpDTO user)
-		{
-
-
-			if (user == null)
-			{
-				return BadRequest();
-			}
-			else
-			{
-				var register = _dataserviceUserserviceUser.SignUp(user);
-				if (register)
-				{
-					return Ok();
-				}
-				else
-				{
-					return BadRequest();
-				}
-			}
-
-
-		}
-
-		//[HttpPost("resetPassword")]
-		//public IActionResult ResetPassword([FromBody] ResetPasswordDTO resetPasswordcs)
+		//[HttpPost("login")]
+		//public IActionResult LogIn([FromBody] LoginDTO user)
 		//{
-
-		//	if (resetPasswordcs == null)
+		//	if (user == null)
 		//	{
 		//		return BadRequest();
 		//	}
 		//	else
 		//	{
-		//		var newPassword = _dataserviceUserserviceUser.ResetPassword(resetPasswordcs);
-		//		if (newPassword)
+		//		var userLogIn = _dataserviceUserserviceUser.LogIn(user);
+		//		if (userLogIn)
 		//		{
 		//			return Ok();
 		//		}
@@ -161,10 +118,35 @@ namespace CoreApiProject.Server.Controllers
 		//		{
 		//			return NotFound();
 		//		}
+		//	}
+		//}
 
+
+		//[HttpPost("signUppp")]
+		//public IActionResult signUppp([FromBody] SignUpDTO user)
+		//{
+
+
+		//	if (user == null)
+		//	{
+		//		return BadRequest();
+		//	}
+		//	else
+		//	{
+		//		var register = _dataserviceUserserviceUser.SignUp(user);
+		//		if (register)
+		//		{
+		//			return Ok();
+		//		}
+		//		else
+		//		{
+		//			return BadRequest();
+		//		}
 		//	}
 
+
 		//}
+
 		[HttpPost("addRating")]
 		public IActionResult AddReview([FromBody] RatingDTO ratingDto)
 		{
