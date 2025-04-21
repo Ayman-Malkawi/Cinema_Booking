@@ -1,10 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UrlService } from '../ClientService/url.service';
 
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
-  styleUrl: './movies.component.css'
+  styleUrls: ['./movies.component.css']
 })
-export class MoviesComponent {
+export class MoviesComponent implements OnInit {
+  moviecontunier: any[] = [];
+  categories: any[] = [];
 
+  constructor(private _ser: UrlService) { }
+
+  ngOnInit() {
+    this.getAllMovies();
+    this.getAllCategories();
+  }
+
+  getAllMovies() {
+    this._ser.getAllMovies().subscribe((data: any) => {
+      this.moviecontunier = data;
+    });
+  }
+
+  getAllCategories() {
+    this._ser.getAllCategories().subscribe((data: any) => {
+      this.categories = data;
+    });
+  }
+
+  onCategoryChange(event: Event): void {
+    const selectedCategoryId = +(event.target as HTMLSelectElement).value;
+
+    if (selectedCategoryId == 0) {
+      this.getAllMovies();
+    } else {
+      this._ser.getMoviesByCategory(selectedCategoryId).subscribe((data: any) => {
+        this.moviecontunier = data;
+      });
+    }
+  }
 }

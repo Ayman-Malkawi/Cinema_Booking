@@ -1,0 +1,33 @@
+
+<a class="btn btn-success" [routerLink]="['/admin/add-movie']">Add New Movie</a>
+
+
+<div *ngIf="movies.length > 0">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of movies; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.categoryName }}</td>
+        <td>
+          <button (click)="navigateToEditMovie(movie)" class="btn btn-sm btn-edit">
+            <i class="fas fa-edit me-1"></i> Edit
+          </button>
+
+
+
+          <!-- زر Toggle Viable مع إضافة class لـ Bootstrap -->
+          <button (click)="toggleViable(movie.id)" class="btn btn-sm btn-info">Toggle Viable</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

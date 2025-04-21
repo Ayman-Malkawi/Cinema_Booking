@@ -1,0 +1,37 @@
+<form (ngSubmit)="addMovie()">
+  <label for="title">Title:</label>
+  <input type="text" id="title" [(ngModel)]="movie.title" name="title" required>
+
+  <label for="description">Description:</label>
+  <textarea id="description" [(ngModel)]="movie.description" name="description" required></textarea>
+
+  <label for="category">Category:</label>
+  <select id="category" [(ngModel)]="movie.categoryId" name="categoryId" required>
+    <option *ngFor="let category of categories" [value]="category.id">{{ category.categoryName }}</option>
+  </select>
+
+  <label for="duration">Duration (minutes):</label>
+  <input type="number" id="duration" [(ngModel)]="movie.duration" name="duration" required>
+
+  <label for="releaseDate">Release Date:</label>
+  <input type="date" id="releaseDate" [(ngModel)]="movie.releaseDate" name="releaseDate" required>
+
+  <label for="image">Image URL:</label>
+  <input type="text" id="image" [(ngModel)]="movie.image" name="image" required>
+
+  <!-- Preview of the image if URL is entered -->
+  <div *ngIf="movie.image">
+    <p>Image Preview:</p>
+    <img [src]="movie.image" alt="Movie Image" width="200" style="border: 1px solid #ccc; padding: 5px;">
+  </div>
+
+  <!--مش شغااااااال--> 
+
+  <label for="ticketPrice">Ticket Price:</label>
+  <input type="number" id="ticketPrice" [(ngModel)]="movie.ticketPrice" name="ticketPrice" required>
+
+  <label for="rating">Rating (1 to 5):</label>
+  <input type="number" id="rating" [(ngModel)]="movie.rating" name="rating" required min="1" max="5">
+
+  <button type="submit">Add Movie</button>
+</form>

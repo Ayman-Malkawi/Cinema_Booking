@@ -4,6 +4,10 @@ using CoreApiProject.Server.Habib.HabibInterFace;
 using CoreApiProject.Server.Habib.HabibService;
 using CoreApiProject.Server.IDataService;
 using CoreApiProject.Server.Models;
+
+using CoreApiProject.Server.DataService;
+using CoreApiProject.Server.IDataService;
+using CoreApiProject.Server.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -35,6 +39,10 @@ builder.Services.AddCors(options =>
 		});
 });
 
+builder.Services.AddDbContext<MyDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
+
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -44,9 +52,31 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 {
 	options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
 });
+builder.Services.AddDbContext<MyDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
+
+builder.Services.AddScoped<IData, DataS>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline
+app.UseCors("AllowAllOrigins");
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
+// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
@@ -62,6 +92,9 @@ app.UseRouting();      // 1. Routing first
 app.UseSession();      // 2. Then session
 app.UseAuthorization(); // 3. Then authorization
 app.UseCors("AllowAllOrigins"); 
+
+app.UseCors("AllowAllOrigins");
+
 
 app.MapControllers();
 app.MapFallbackToFile("/index.html");

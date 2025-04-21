@@ -11,11 +11,28 @@ import { BookingForSeatComponent } from './booking-for-seat/booking-for-seat.com
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddRatingForMoviesComponent } from './add-rating-for-movies/add-rating-for-movies.component';
+import { FaqComponent } from './faq/faq.component';
+import { TermsComponent } from './terms/terms.component';
+import { DashBoardComponent } from './Admin/dash-board/dash-board.component';
+import { AdminLayoutComponent } from './Admin/admin-layout/admin-layout.component';
+import { UsersComponent } from './Admin/users/users.component';
+import { CategoryComponent } from './Admin/category/category.component';
+import { EditCategoryComponent } from './Admin/edit-category/edit-category.component';
+import { AddCategoryComponent } from './Admin/add-category/add-category.component';
+import { ManageMovieComponent } from './Admin/manage-movie/manage-movie.component';
+import { EditMoviesComponent } from './Admin/edit-movies/edit-movies.component';
+import { AddMoviesComponent } from './Admin/add-movies/add-movies.component';
+import { PrivateRoomComponent } from './Admin/private-room/private-room.component';
+import { AddPrivateBookComponent } from './Admin/add-private-book/add-private-book.component';
+import { PrivateRoomsComponent } from './Admin/private-rooms/private-rooms.component';
+import { AddPrivateRoomComponent } from './Admin/add-private-room/add-private-room.component';
+import { ManageRoomAvailabilityComponent } from './Admin/manage-room-availability/manage-room-availability.component';
+import { PrivateBookingListComponent } from './Admin/private-booking-list/private-booking-list.component';
 
 
 const routes: Routes = [
 
-  { path: "", component: HomeComponent },
+  { path: "Home", component: HomeComponent },
   { path: "movie", component: MoviesComponent },
 
   { path: "Ticket", component: MovieTicketComponent },
@@ -34,6 +51,42 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "profile", component: ProfileComponent },
   { path: 'addRatingFormovies/:id', component:AddRatingForMoviesComponent },
+
+  { path: "register", component: RegisterComponent },
+
+  { path: "faq", component: FaqComponent },
+
+  { path: "Terms", component: TermsComponent },
+  { path: "register", component: RegisterComponent },
+
+
+  {
+    path: "admin",
+    component: AdminLayoutComponent,
+    children: [
+      { path: "", component: DashBoardComponent },
+      { path: "dashboard", component: DashBoardComponent },
+      { path: "users", component: UsersComponent },
+      { path: "cat", component: CategoryComponent },
+      { path: "add-category", component: AddCategoryComponent },
+      { path: "edit-category/:id", component: EditCategoryComponent },
+      { path: "ManageMovie", component: ManageMovieComponent },
+      { path: "add-movie", component: AddMoviesComponent },
+      { path: "edit-movie/:id", component: EditMoviesComponent },
+      //{ path: "privateRoomBook", component: PrivateRoomComponent },
+      { path: "addRooms", component: AddPrivateBookComponent },
+      { path: "privateRooms", component: PrivateRoomsComponent },
+      { path: "AddPrivateRooms", component: AddPrivateRoomComponent },
+      { path: 'manage-availability/:id', component: ManageRoomAvailabilityComponent },
+      { path: 'privateRoomBook', component: PrivateBookingListComponent }
+
+
+
+    ]
+  }
+
+
+
 
 ];
 
