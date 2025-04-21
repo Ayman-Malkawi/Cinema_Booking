@@ -1,66 +1,4 @@
 <!-- Banner Section -->
-<!--<section class="banner-section">
-  <div class="banner-bg"></div>
-  <div class="container">
-    <div class="banner-content">
-      <h1 class="title bold">Buy <span class="color-theme">Movie</span> Tickets</h1>
-      <p>Book your tickets online for the latest movies in theaters near you.</p>
-    </div>
-  </div>
-</section>
-
-
-<div class="filter-area">
-  <label for="categorySelect">Select Category</label>
-  <select id="categorySelect" (change)="onCategoryChange($event)">
-    <option value="">Select Category</option>-->
-<!-- الخيار الأول لعدم تحديد كاتيجوري -->
-<!--<option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
-  </select>
-</div>-->
-<!-- Movies Section -->
-<!-- Movies Section -->
-<!--<section class="movie-section padding-top padding-bottom">
-  <div class="container">
-    <div class="row flex-wrap-reverse justify-content-center">
-      <div class="col-lg-9 mb-50 mb-lg-0">
-        <div class="filter-tab tab">
-          <div class="tab-area">
-            <div class="tab-item active">
-              <div class="row mb-10 justify-content-center">
-                <div class="col-sm-6 col-lg-4" *ngFor="let movie of moviecontunier">
-                  <div class="movie-grid">
-                    <div class="movie-thumb c-thumb">
-                      <a href="#">
-                        <img [src]="movie.imageUrl" alt="{{ movie.title }}">
-                      </a>
-                    </div>
-                    <div class="movie-content">
-                      <h5 class="title m-0">
-                        <a href="#">{{ movie.title }}</a>
-                      </h5>
-                      <ul class="movie-rating-percent">
-                        <li>
-                          <i class="fas fa-ticket-alt"></i>
-                          <span class="content">{{ movie.ticketsSold }}</span>
-                        </li>
-                        <li>
-                          <i class="fas fa-star"></i>
-                          <span class="content">{{ movie.rating }}</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>-->
-<!-- Banner Section -->
 <section class="banner-section">
   <div class="banner-bg"></div>
   <div class="container">
@@ -71,21 +9,18 @@
   </div>
 </section>
 
+<!-- الفلتر محفوظ بالكامل -->
 <div class="filter-area text-center">
   <h2 class="filter-title mb-4">
     <i class="fas fa-film me-2 text-primary"></i> Select Movie Category
   </h2>
-  <!--<label for="categorySelect" class="form-label fw-bold">Choose a Category</label>-->
   <select id="categorySelect" class="form-select category-select mx-auto" (change)="onCategoryChange($event)">
     <option value="0">🎬 All Movies</option>
     <option *ngFor="let category of categories" [value]="category.id">
       {{ category.categoryName }}
     </option>
   </select>
-
 </div>
-
-
 
 <!-- Movies Section -->
 <section class="movie-section padding-top padding-bottom">
@@ -97,7 +32,7 @@
             <div class="tab-item active">
               <div class="row mb-10 justify-content-center">
 
-                <!-- Start Movie Card -->
+                <!-- بطاقة الفيلم مع الأزرار المعدلة -->
                 <div class="col-sm-6 col-lg-6" *ngFor="let movie of moviecontunier">
                   <div class="movie-grid">
                     <div class="movie-thumb c-thumb">
@@ -110,25 +45,31 @@
                         <a href="#" class="text-white fw-bold">{{ movie.title }}</a>
                       </h5>
                       <ul class="movie-rating-percent mt-2 list-unstyled d-flex justify-content-between">
-                        <!--<li class="d-flex align-items-center">
-                          <i class="fal fa-shopping-cart me-1"></i>
-                          <span class="content">{{ movie.ticketsSold }}</span>
-                        </li>-->
                         <li class="d-flex align-items-center">
                           <i class="fal fa-star me-1 text-warning"></i>
                           <span class="content">{{ movie.rating }}</span>
+                          <span class="content">{{ movie.releaseDate }}</span>
                         </li>
                       </ul>
+
+                      <!-- الأزرار الجديدة المدمجة -->
+                      <div class="d-flex justify-content-between mt-2 px-1">
+                        <button class="btn btn-sm btn-primary px-2" style="font-size: 0.75rem; margin: 3%">
+                          <i class="fas fa-home me-1"></i> Private
+                        </button>
+                        <button class="btn btn-sm btn-outline-light px-2" style="font-size: 0.75rem; margin:3%">
+                          <i class="fas fa-film me-1"></i> Regular
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <!-- End Movie Card -->
 
-              </div> <!-- row -->
-            </div> <!-- tab-item -->
-          </div> <!-- tab-area -->
-        </div> <!-- filter-tab -->
-      </div> <!-- col-lg-9 -->
-    </div> <!-- row -->
-  </div> <!-- container -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

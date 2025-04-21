@@ -74,6 +74,15 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.EndTime).HasColumnType("datetime");
             entity.Property(e => e.PaymentMethod).HasMaxLength(50);
             entity.Property(e => e.PaymentStatus).HasMaxLength(50);
+            entity.Property(e => e.Seat1)
+                .HasMaxLength(10)
+                .IsUnicode(false);
+            entity.Property(e => e.Seat2)
+                .HasMaxLength(10)
+                .IsUnicode(false);
+            entity.Property(e => e.Seat3)
+                .HasMaxLength(10)
+                .IsUnicode(false);
             entity.Property(e => e.StartTime).HasColumnType("datetime");
             entity.Property(e => e.TotalPrice).HasColumnType("decimal(10, 2)");
 
@@ -176,6 +185,10 @@ public partial class MyDbContext : DbContext
             entity.HasOne(d => d.Booking).WithMany(p => p.Payments)
                 .HasForeignKey(d => d.BookingId)
                 .HasConstraintName("FK__Payments__Bookin__70DDC3D8");
+
+            entity.HasOne(d => d.PrivateBooking).WithMany(p => p.Payments)
+                .HasForeignKey(d => d.PrivateBookingId)
+                .HasConstraintName("FK__Payments__Privat__02FC7413");
         });
 
         modelBuilder.Entity<PrivateBooking>(entity =>
@@ -218,10 +231,6 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.Vipprice)
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("VIPPrice");
-
-            entity.HasOne(d => d.Room).WithMany(p => p.PrivateRooms)
-                .HasForeignKey(d => d.RoomId)
-                .HasConstraintName("FK__PrivateRo__RoomI__4316F928");
         });
 
         modelBuilder.Entity<Review>(entity =>

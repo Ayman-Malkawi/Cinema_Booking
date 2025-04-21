@@ -35,9 +35,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              
+              "src/assets/AdminAssets/css/admin.css",
+              "src/assets/AdminAssets/css/select2.min.css",
+              "src/assets/AdminAssets/css/magnific-popup.css",
+              "src/assets/AdminAssets/css/bootstrap-grid.min.css",
+              "src/assets/AdminAssets/css/bootstrap-reboot.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              
+
+
+            ]
           },
           "configurations": {
             "production": {
@@ -93,9 +102,10 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
+
             ],
             "styles": [
-              "src/styles.css"
+             
             ],
             "scripts": [],
             "karmaConfig": "karma.conf.js"

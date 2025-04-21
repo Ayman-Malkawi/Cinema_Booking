@@ -44,4 +44,15 @@ export class UrlService {
     return this._http.get<any>('https://localhost:7057/api/ShowFilm/GetAllCategories');
   }
 
+  AddUser(data: any) {
+
+    return this._http.post(`https://localhost:7057/api/SignUp/signUp`, data)
+
+  }
+
+  CheckUser(data: any) {
+
+    return this._http.post(`https://localhost:7057/api/Login/logIn`,data)
+  }
+
 }

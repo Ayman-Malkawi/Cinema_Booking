@@ -1,5 +1,5 @@
     <!-- ==========Banner-Section========== -->
-<section class="main-page-header speaker-banner" style="background: url('assets/img/banner/banner-2.jpg');">
+<!--<section class="main-page-header speaker-banner" style="background: url('assets/img/banner/banner-2.jpg');">
   <div class="container">
     <div class="speaker-banner-content">
       <h2 class="title">login</h2>
@@ -15,10 +15,10 @@
       </ul>
     </div>
   </div>
-</section>
+</section>-->
 <!-- ==========Banner-Section========== -->
 <!-- ==========Login-Section========== -->
-<section class="account-section">
+<!--<section class="account-section">
   <div class="container">
     <div class="padding-top padding-bottom">
       <div class="account-area">
@@ -68,5 +68,88 @@
       </div>
     </div>
   </div>
-</section>
+</section>-->
 <!-- ==========Login-Section========== -->
+<!--==========Banner-Section==========-->
+<section class="main-page-header speaker-banner" style="background: url('assets/img/banner/banner-2.jpg');">
+  <div class="container">
+    <div class="speaker-banner-content">
+      <h2 class="title">login</h2>
+      <ul class="breadcrumb">
+        <li>
+          <a href="index.html">
+            Home
+          </a>
+        </li>
+        <li>
+          <a routerLink="/login">LonIn</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!--==========Banner-Section==========
+==========Login-Section==========-->
+<section class="account-section">
+  <div class="container">
+    <div class="padding-top padding-bottom">
+      <div class="account-area">
+        <div class="section-header-3">
+          <span class="cate">hello !</span>
+          <h2 class="title">welcome back</h2>
+        </div>
+        <!-- Add this above your form -->
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+        <form class="account-form" #add="ngForm" (ngSubmit)="CheckUser(add.value)">
+
+          <div class="form-group">
+            <label for="email">Email<span>*</span></label>
+            <!--<input type="text" placeholder="Email" id="email" required name="Email" ngModel>-->
+            <input type="text" placeholder="Email" id="email" required name="email" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="password">Password<span>*</span></label>
+            <!--<input type="password" placeholder="Password" id="password" required name="Password" ngModel>-->
+            <input type="password" placeholder="Password" id="password" required name="password" ngModel>
+          </div>
+          <div class="form-group checkgroup">
+            <input type="checkbox" id="bal2" required checked>
+            <label for="bal2">remember me</label>
+            <a href="forgot-password.html" class="forget-pass">Forgot Password?</a>
+          </div>
+          <div class="form-group text-center">
+            <input type="submit" value="log in">
+          </div>
+        </form>
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+
+        <div class="option">
+          Don't have an account? <a href="register">register now</a>.
+        </div>
+        <div class="or"><span>Or</span></div>
+        <ul class="social-icons">
+          <li>
+            <a href="#">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fab fa-google"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!--==========Login-Section==========-->

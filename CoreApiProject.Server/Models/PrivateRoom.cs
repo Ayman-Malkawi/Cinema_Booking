@@ -7,8 +7,6 @@ public partial class PrivateRoom
 {
     public int Id { get; set; }
 
-    public int? RoomId { get; set; }
-
     public string? Vipname { get; set; }
 
     public string? Vipdescription { get; set; }
@@ -18,8 +16,6 @@ public partial class PrivateRoom
     public int? Capacity { get; set; }
 
     public virtual ICollection<PrivateBooking> PrivateBookings { get; set; } = new List<PrivateBooking>();
-
-    public virtual Room? Room { get; set; }
 
     public virtual ICollection<RoomAvailability> RoomAvailabilities { get; set; } = new List<RoomAvailability>();
 }

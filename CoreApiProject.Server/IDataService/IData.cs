@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using CoreApiProject.Server.Models;
-
+﻿    using System.Collections.Generic;
 using CoreApiProject.Server.DTORequest;
 using CoreApiProject.Server.Models;
+
 
 namespace CoreApiProject.Server.IDataService
 {
@@ -31,7 +30,7 @@ namespace CoreApiProject.Server.IDataService
 
 
         public List<MovieDTO> GetAllMovies();
-        
+
         public Movie GetMovieById(int id);
 
         public bool AddMovie(MovieDTO dto);
@@ -56,6 +55,9 @@ namespace CoreApiProject.Server.IDataService
 
         public void Update(int id, PrivateBookingDTO dto);
         public void Delete(int id);
+        public bool SignUp(SignUpDTO user);
+        User? LogIn(LoginDTO user, IHttpContextAccessor httpContextAccessor);
+
 
 
     }

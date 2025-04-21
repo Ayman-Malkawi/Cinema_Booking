@@ -26,7 +26,7 @@ import { AddPrivateBookComponent } from './Admin/add-private-book/add-private-bo
 
 const routes: Routes = [
 
-  { path: "Home", component: HomeComponent },
+  { path: "", component: HomeComponent },
   { path: "movie", component: MoviesComponent },
 
   { path: "Ticket", component: MovieTicketComponent },
@@ -42,7 +42,7 @@ const routes: Routes = [
 
   { path: "Booking", component: BookingForSeatComponent },
 
-  { path: "register", component: RegisterComponent },
+  { path: "Register", component: RegisterComponent },
 
   { path: "faq", component: FaqComponent },
 
@@ -51,8 +51,7 @@ const routes: Routes = [
 
 
   {
-    path: "admin",
-    component: AdminLayoutComponent,
+    path: "admin", component: AdminLayoutComponent,
     children: [
       { path: "", component: DashBoardComponent },
       { path: "dashboard", component: DashBoardComponent },

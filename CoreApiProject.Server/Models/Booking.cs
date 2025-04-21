@@ -29,6 +29,12 @@ public partial class Booking
 
     public string? PaymentMethod { get; set; }
 
+    public string? Seat1 { get; set; }
+
+    public string? Seat2 { get; set; }
+
+    public string? Seat3 { get; set; }
+
     public virtual Movie? Movie { get; set; }
 
     public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();

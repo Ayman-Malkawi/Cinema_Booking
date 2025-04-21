@@ -43,15 +43,15 @@ namespace CoreApiProject.Server.DataService
             return _context.MovieCategories.ToList();
         }
 
-   
 
 
-       public List<User> GetAllUsers()
+
+        public List<User> GetAllUsers()
         {
-           var AllUsers =  _context.Users.ToList();
-           
+            var AllUsers = _context.Users.ToList();
+
             return AllUsers;
-        
+
         }
 
 
@@ -421,6 +421,42 @@ namespace CoreApiProject.Server.DataService
             }
         }
 
+        ///////////////Registeration//////////////////
+        public bool SignUp(SignUpDTO user)
+        {
+            var dbUser = new Models.User();
+            dbUser.FullName = user.FullName;
+            dbUser.Email = user.Email;
+            dbUser.Password = user.Password;
+            dbUser.Phone = user.Phone;
+            dbUser.Role = "User";  // هنا السطر المهم
+
+            _context.Users.Add(dbUser);
+            _context.SaveChanges();
+            return true;
+
+
+        }
+
+        ///////////////LOGIN//////////////////
+        public User? LogIn(LoginDTO user, IHttpContextAccessor httpContextAccessor)
+        {
+            var foundUser = _context.Users
+                .FirstOrDefault(u => u.Email == user.Email && u.Password == user.Password);
+
+            if (foundUser != null)
+            {
+                return foundUser;
+            }
+
+            return null;
+        }
+
+
+
+
 
     }
+
+
 }
