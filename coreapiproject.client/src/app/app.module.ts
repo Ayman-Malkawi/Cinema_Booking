@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,29 @@ import { SeatSelectionComponent } from './adnan/seat-selection/seat-selection.co
 import { PaymentComponent } from './adnan/payment/payment.component';
 import { FormsModule } from '@angular/forms';
 import { ETicketComponent } from './adnan/e-ticket/e-ticket.component';
+import { ProfileComponent } from './profile/profile.component';
+import { FormsModule } from '@angular/forms';
+import { AddRatingForMoviesComponent } from './add-rating-for-movies/add-rating-for-movies.component';
+import { FaqComponent } from './faq/faq.component';
+import { TermsComponent } from './terms/terms.component';
+import { SideBarComponent } from './Admin/side-bar/side-bar.component';
+import { DashBoardComponent } from './Admin/dash-board/dash-board.component';
+import { AdminLayoutComponent } from './Admin/admin-layout/admin-layout.component';
+import { UsersComponent } from './Admin/users/users.component';
+import { CategoryComponent } from './Admin/category/category.component';
+import { AddCategoryComponent } from './Admin/add-category/add-category.component';
+import { EditCategoryComponent } from './Admin/edit-category/edit-category.component';
+import { RouterModule } from '@angular/router';
+import { ManageMovieComponent } from './Admin/manage-movie/manage-movie.component';
+import { AddMoviesComponent } from './Admin/add-movies/add-movies.component';
+import { EditMoviesComponent } from './Admin/edit-movies/edit-movies.component';
+import { PrivateRoomComponent } from './Admin/private-room/private-room.component';
+import { AddPrivateBookComponent } from './Admin/add-private-book/add-private-book.component';
+import { PrivateRoomsComponent } from './Admin/private-rooms/private-rooms.component';
+import { AddPrivateRoomComponent } from './Admin/add-private-room/add-private-room.component';
+import { ManageRoomAvailabilityComponent } from './Admin/manage-room-availability/manage-room-availability.component';
+import { PrivateBookingListComponent } from './Admin/private-booking-list/private-booking-list.component';
+
 
 
 @NgModule({
@@ -48,10 +72,32 @@ import { ETicketComponent } from './adnan/e-ticket/e-ticket.component';
     ETicketComponent,
     
     
+    ProfileComponent,
+    AddRatingForMoviesComponent,
+    FaqComponent,
+    TermsComponent,
+    SideBarComponent,
+    DashBoardComponent,
+    AdminLayoutComponent,
+    UsersComponent,
+    CategoryComponent,
+    AddCategoryComponent,
+    EditCategoryComponent,
+    ManageMovieComponent,
+    AddMoviesComponent,
+    EditMoviesComponent,
+    PrivateRoomComponent,
+    AddPrivateBookComponent,
+    PrivateRoomsComponent,
+    AddPrivateRoomComponent,
+    ManageRoomAvailabilityComponent,
+    PrivateBookingListComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,
     AppRoutingModule, FormsModule
+    AppRoutingModule, FormsModule
+    AppRoutingModule, FormsModule, RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
