@@ -5,7 +5,7 @@ using CoreApiProject.Server.Models;
 
 namespace CoreApiProject.Server.IDataService
 {
-    public interface IData
+    public interface IData 
     {
         public List<Movie> GetMovies();
 
@@ -27,7 +27,7 @@ namespace CoreApiProject.Server.IDataService
         public void EditCategory(int id, MovieCategoryDTO dto);
 
 
-
+        public bool AddNewRoom(RoomDTO room);
 
         public List<MovieDTO> GetAllMovies();
 
@@ -46,19 +46,33 @@ namespace CoreApiProject.Server.IDataService
         public Booking GetBookingById(int id);
         public void CancelBooking(int id);
 
+        public bool AddFeedBack(ContactDTO FeedBack);
 
 
-        public List<PrivateBookingDTO> GetAll();
-        public PrivateBookingDTO GetById(int id);
+        public List<PrivateBookingViewDTO> GetAll();
+        //public PrivateBookingDTO GetById(int id);
 
-        public void Add(PrivateBookingDTO dto);
+        //public void Add(PrivateBookingDTO dto);
 
-        public void Update(int id, PrivateBookingDTO dto);
-        public void Delete(int id);
-        public bool SignUp(SignUpDTO user);
-        User? LogIn(LoginDTO user, IHttpContextAccessor httpContextAccessor);
-
+        public List<ContactU> GetContacts();
+        //public void Update(int id, PrivateBookingDTO dto);
+        //public void Delete(int id);
 
 
+
+        public List<PrivateRoomDTO1> GetAllPrivateRooms();
+
+        public void AddPrivateRoom(PrivateRoomDTO1 dto);
+
+
+        public List<PrivateRoomWithAvailabilityDto> GetPrivateRoomsWithAvailability();
+
+
+        public void AddPrivateRoomWithAvailability(PrivateRoomWithAvailabilityDto dto);
+
+
+        public List<Room> GetAllRooms();
+
+        public bool AddAvailability(RoomAvailabilityDTO Addava);
     }
 }

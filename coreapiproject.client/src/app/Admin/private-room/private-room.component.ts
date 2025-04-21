@@ -40,10 +40,14 @@ export class PrivateRoomComponent {
 
   loadBookings() {
     this._url.getAll().subscribe({
-      next: (data) => this.bookings = data,
+      next: (data) => {
+        console.log(data);  // Add this line to see the data in the console
+        this.bookings = data;
+      },
       error: (err) => console.error('Error loading bookings', err)
     });
   }
+
 
 
 

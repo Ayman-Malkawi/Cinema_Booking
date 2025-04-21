@@ -8,8 +8,8 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\coreapiproject.client\browser\</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\app\Admin\" />
     <Folder Include="src\app\ClientService\" />
     <Folder Include="src\app\AdminService\" />
+    <Folder Include="src\app\UsersServiceHabib\" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,9 @@
 ﻿using CoreApiProject.Server.DTORequest;
 using CoreApiProject.Server.IDataService;
+using CoreApiProject.Server.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoreApiProject.Server.Controllers
 {
@@ -17,38 +19,41 @@ namespace CoreApiProject.Server.Controllers
         }
 
 
+
+
         [HttpGet("AllPrivateRooms")]
-        public IActionResult GetAll() => Ok(_data.GetAll());
-
-
-        [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public IActionResult GetAllPrivateRooms()
         {
-            var booking = _data.GetById(id);
-            if (booking == null) return NotFound();
-            return Ok(booking);
+            try
+            {
+                var privateRooms = _data.GetAllPrivateRooms();
+                return Ok(privateRooms);  // إرجاع الغرف الخاصة مع حالة النجاح
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
         [HttpPost("AddPrivateRoom")]
-        public IActionResult Add([FromBody] PrivateBookingDTO dto)
+        public IActionResult AddPrivateRoom(PrivateRoomDTO1 dto)
         {
-            _data.Add(dto);
-            return Ok("Booking created");
+            try
+            {
+                _data.AddPrivateRoom(dto);
+                return CreatedAtAction(nameof(GetAllPrivateRooms), new { id = dto.Id }, dto);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
-        [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] PrivateBookingDTO dto)
-        {
-            _data.Update(id, dto);
-            return Ok("Booking updated");
-        }
 
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            _data.Delete(id);
-            return Ok("Booking deleted");
-        }
+
+
+
+
 
 
     }

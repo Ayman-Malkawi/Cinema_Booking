@@ -1,0 +1,76 @@
+/* التصميم الجديد مع لمسة #007bff */
+.room-card {
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: white;
+  border: 1px solid rgba(0, 123, 255, 0.1);
+}
+
+  .room-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 123, 255, 0.15) !important;
+    border-color: rgba(0, 123, 255, 0.3);
+  }
+
+.card-img-container {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-img-top {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.room-card:hover .card-img-top {
+  transform: scale(1.08);
+}
+
+/* تأثيرات اللون الأزرق */
+.card-title {
+  color: #2c3e50;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+  .card-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: #007bff;
+    transition: width 0.3s ease;
+  }
+
+.room-card:hover .card-title::after {
+  width: 80px;
+}
+
+/* زر الحجز المعدل */
+.btn-outline-primary {
+  border-width: 2px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+  .btn-outline-primary:hover {
+    background: #007bff;
+    color: white !important;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+  }
+
+/* مسافات إضافية */
+.container.my-5 {
+  margin-top: 3rem !important;
+  margin-bottom: 5rem !important;
+}
+
+.row.g-5 > [class*='col-'] {
+  padding-top: 1.5rem;
+}

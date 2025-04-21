@@ -9,6 +9,8 @@ import { CheckOutComponent } from './check-out/check-out.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { BookingForSeatComponent } from './booking-for-seat/booking-for-seat.component';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AddRatingForMoviesComponent } from './add-rating-for-movies/add-rating-for-movies.component';
 import { FaqComponent } from './faq/faq.component';
 import { TermsComponent } from './terms/terms.component';
 import { DashBoardComponent } from './Admin/dash-board/dash-board.component';
@@ -20,8 +22,20 @@ import { AddCategoryComponent } from './Admin/add-category/add-category.componen
 import { ManageMovieComponent } from './Admin/manage-movie/manage-movie.component';
 import { EditMoviesComponent } from './Admin/edit-movies/edit-movies.component';
 import { AddMoviesComponent } from './Admin/add-movies/add-movies.component';
+import { ShowFeedBackComponent } from './Admin/show-feedback/show-feed-back.component';
+import { AddRoomsComponent } from './Admin/add-rooms/add-rooms.component';
+import { ShowAllRoomsComponent } from './Admin/show-all-rooms/show-all-rooms.component';
+import { RoomAvailabilityComponent } from './Admin/room-availability/room-availability.component';
 import { PrivateRoomComponent } from './Admin/private-room/private-room.component';
 import { AddPrivateBookComponent } from './Admin/add-private-book/add-private-book.component';
+import { PrivateRoomsComponent } from './Admin/private-rooms/private-rooms.component';
+import { AddPrivateRoomComponent } from './Admin/add-private-room/add-private-room.component';
+import { ManageRoomAvailabilityComponent } from './Admin/manage-room-availability/manage-room-availability.component';
+import { PrivateBookingListComponent } from './Admin/private-booking-list/private-booking-list.component';
+import { ShowTimingComponent } from './adnan/show-timing/show-timing.component';
+import { SeatSelectionComponent } from './adnan/seat-selection/seat-selection.component';
+import { PaymentComponent } from './adnan/payment/payment.component';
+import { ETicketComponent } from './adnan/e-ticket/e-ticket.component';
 
 
 const routes: Routes = [
@@ -42,7 +56,11 @@ const routes: Routes = [
 
   { path: "Booking", component: BookingForSeatComponent },
 
-  { path: "Register", component: RegisterComponent },
+  { path: "register", component: RegisterComponent },
+  { path: "profile", component: ProfileComponent },
+  { path: 'addRatingFormovies/:id', component:AddRatingForMoviesComponent },
+
+  { path: "register", component: RegisterComponent },
 
   { path: "faq", component: FaqComponent },
 
@@ -53,7 +71,7 @@ const routes: Routes = [
   {
     path: "admin", component: AdminLayoutComponent,
     children: [
-      { path: "", component: DashBoardComponent },
+     
       { path: "dashboard", component: DashBoardComponent },
       { path: "users", component: UsersComponent },
       { path: "cat", component: CategoryComponent },
@@ -62,9 +80,16 @@ const routes: Routes = [
       { path: "ManageMovie", component: ManageMovieComponent },
       { path: "add-movie", component: AddMoviesComponent },
       { path: "edit-movie/:id", component: EditMoviesComponent },
-      { path: "privateRooms", component: PrivateRoomComponent },
-      { path: "addRooms", component: AddPrivateBookComponent },
-
+      { path: "Contact", component: ShowFeedBackComponent },
+      { path: "AddRoom", component: AddRoomsComponent },
+      { path: "ShowAllRoom", component: ShowAllRoomsComponent },
+      { path: "RoomAvailability/:id", component: RoomAvailabilityComponent }
+      //{ path: "privateRoomBook", component: PrivateRoomComponent },
+     , { path: "addRooms", component: AddPrivateBookComponent },
+      { path: "privateRooms", component: PrivateRoomsComponent },
+      { path: "AddPrivateRooms", component: AddPrivateRoomComponent },
+      { path: 'manage-availability/:id', component: ManageRoomAvailabilityComponent },
+      { path: 'privateRoomBook', component: PrivateBookingListComponent }
 
 
 
@@ -72,6 +97,14 @@ const routes: Routes = [
   }
 
 
+
+
+ , { path: "register", component: RegisterComponent },
+  { path: "showTiming", component: ShowTimingComponent },
+  { path: "seat-selection", component: SeatSelectionComponent },
+  { path: "payment", component: PaymentComponent },
+  { path: "ticket", component: ETicketComponent }
+  
 
 
 ];
