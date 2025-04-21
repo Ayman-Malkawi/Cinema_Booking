@@ -1,0 +1,30 @@
+<div class="timing-container">
+  <h2>Select Show Timing 🎬</h2>
+
+  <!-- Days Selection -->
+  <div class="days-row">
+    <button *ngFor="let day of days" class="day-btn" (click)="selectedDate = day.date">
+      {{ day.label }}
+    </button>
+  </div>
+
+  <!-- Screens and Times -->
+  <div class="screens">
+    <div *ngFor="let screen of screens" class="screen">
+      <h4>{{ screen.screen }}</h4>
+      <div class="times">
+        <button *ngFor="let time of screen.times"
+                class="time-btn"
+                [class.selected]="selectedScreen === screen.screen && selectedTime === time"
+                (click)="selectTime(screen.screen, time)">
+          {{ time }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Continue -->
+  <div class="text-center mt-4">
+    <button class="btn btn-success" (click)="continueBooking()">Continue to Seat Selection</button>
+  </div>
+</div>

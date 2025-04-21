@@ -1,0 +1,50 @@
+.timing-container {
+  padding: 30px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.days-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.day-btn {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px;
+  background: #eee;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.screens {
+  margin-top: 30px;
+}
+
+.screen {
+  margin-bottom: 20px;
+}
+
+.times {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.time-btn {
+  padding: 8px 14px;
+  background-color: #dcdcdc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+  .time-btn.selected {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+  }
