@@ -29,8 +29,6 @@ public partial class PrivateBooking
 
     public virtual Movie? Movie { get; set; }
 
-    public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
-
     public virtual PrivateRoom? PrivateRoom { get; set; }
 
     public virtual User? User { get; set; }

@@ -10,6 +10,11 @@
 
         public TimeOnly? EndTime { get; set; }
 
+        public int Id { get; set; }
+
+        public int? PrivateRoomId { get; set; }
+
+
     }
 
 }
