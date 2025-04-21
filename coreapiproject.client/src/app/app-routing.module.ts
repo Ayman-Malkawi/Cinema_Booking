@@ -72,7 +72,7 @@ const routes: Routes = [
     path: "admin",
     component: AdminLayoutComponent,
     children: [
-      { path: "", component: DashBoardComponent },
+     
       { path: "dashboard", component: DashBoardComponent },
       { path: "users", component: UsersComponent },
       { path: "cat", component: CategoryComponent },
@@ -86,7 +86,7 @@ const routes: Routes = [
       { path: "ShowAllRoom", component: ShowAllRoomsComponent },
       { path: "RoomAvailability/:id", component: RoomAvailabilityComponent }
       //{ path: "privateRoomBook", component: PrivateRoomComponent },
-      { path: "addRooms", component: AddPrivateBookComponent },
+     , { path: "addRooms", component: AddPrivateBookComponent },
       { path: "privateRooms", component: PrivateRoomsComponent },
       { path: "AddPrivateRooms", component: AddPrivateRoomComponent },
       { path: 'manage-availability/:id', component: ManageRoomAvailabilityComponent },
