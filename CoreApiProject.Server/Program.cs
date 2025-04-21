@@ -1,6 +1,9 @@
 using CoreApiProject.Server.DataService;
 using CoreApiProject.Server.IDataService;
 using CoreApiProject.Server.Models;
+using CoreApiProject.Server.DataService;
+using CoreApiProject.Server.IDataService;
+using CoreApiProject.Server.Models;
 using CoreApiProject.Server.Controllers;
 using CoreApiProject.Server.DataService;
 using CoreApiProject.Server.Habib.HabibInterFace;
@@ -21,10 +24,17 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
         options.JsonSerializerOptions.WriteIndented = true;
     });
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+        options.JsonSerializerOptions.WriteIndented = true;
+    });
 // Add services to the container.
 builder.Services.AddDbContext<MyDbContext>(options =>
 	options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
 
+// Swagger & DB
 // Add distributed cache FIRST (required for session)
 builder.Services.AddDistributedMemoryCache(); // <-- THIS IS THE CRUCIAL MISSING LINE
 
@@ -89,6 +99,28 @@ builder.Services.AddScoped<IBookingService, BookingService>();
 //builder.Services.AddScoped<IBookingService, BookingService>();
 
 
+builder.Services.AddDbContext<MyDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
+
+// Services
+builder.Services.AddScoped<IPrivateBookingService, PrivateBookingService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<IPrivateRoomService, PrivateRoomService>();
+builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+});
+
+//builder.Services.AddScoped<IBookingService, BookingService>();
+
+
 
 builder.Services.AddCors(options =>
 {
@@ -128,11 +160,12 @@ app.UseCors("AllowAllOrigins");
 
 app.UseCors("AllowAllOrigins");
 
+app.UseAuthorization();
+app.UseCors("AllowAllOrigins");
 
 app.MapControllers();
 app.MapFallbackToFile("/index.html");
 //app.MapFallbackToFile("/index.html");
 
-app.MapFallbackToFile("/index.html");
 
 app.Run();
