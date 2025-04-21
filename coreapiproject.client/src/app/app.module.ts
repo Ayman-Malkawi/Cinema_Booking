@@ -1,7 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,7 +21,6 @@ import { RegisterComponent } from './register/register.component';
 import { ShowTimingComponent } from './adnan/show-timing/show-timing.component';
 import { SeatSelectionComponent } from './adnan/seat-selection/seat-selection.component';
 import { PaymentComponent } from './adnan/payment/payment.component';
-import { FormsModule } from '@angular/forms';
 import { ETicketComponent } from './adnan/e-ticket/e-ticket.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
@@ -96,8 +94,7 @@ import { PrivateBookingListComponent } from './Admin/private-booking-list/privat
   imports: [
     BrowserModule, HttpClientModule,
     AppRoutingModule, FormsModule
-    AppRoutingModule, FormsModule
-    AppRoutingModule, FormsModule, RouterModule,
+   , RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

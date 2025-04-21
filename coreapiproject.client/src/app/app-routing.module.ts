@@ -92,7 +92,7 @@ const routes: Routes = [
 
 
 
-  { path: "register", component: RegisterComponent },
+ , { path: "register", component: RegisterComponent },
   { path: "showTiming", component: ShowTimingComponent },
   { path: "seat-selection", component: SeatSelectionComponent },
   { path: "payment", component: PaymentComponent },
