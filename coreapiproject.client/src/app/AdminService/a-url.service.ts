@@ -89,9 +89,35 @@ export class AUrlService {
   }
 
 
+  GetAllShowFeedback() {
+
+    return this.http.get("https://localhost:7057/api/Contact/GetAllFeedback");
+
+  }
+
+  AddNewContact(data:any) {
+
+    return this.http.post("https://localhost:7057/api/Contact/FeedBack", data);
+
+  }
 
 
+  AddNewRoom(data: any) {
+
+    return this.http.post("https://localhost:7057/api/Rooms/AddNewRoom", data);
+
+  }
+
+  getAllRoom() {
+
+    return this.http.get("https://localhost:7057/api/Rooms/GetAllRoom");
+  }
 
 
+  AddRoomAvailability(data: any) {
+
+    return this.http.post("https://localhost:7057/api/RoomAvailability/addAvailability", data);
+
+  }
 
 }

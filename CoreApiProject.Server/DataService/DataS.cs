@@ -295,6 +295,103 @@ namespace CoreApiProject.Server.DataService
             }
         }
 
+        public bool AddFeedBack(ContactDTO FeedBack)
+        {
+
+            if(FeedBack == null)
+            {  return false; }
+
+
+            var Contact = new ContactU();
+
+            Contact.Name = FeedBack.name;
+            Contact.Email = FeedBack.email;
+            Contact.Phone = FeedBack.phone;
+            Contact.Subject = FeedBack.subject;
+            Contact.Message = FeedBack.message;
+            Contact.SubmissionDate = DateTime.Now;
+
+
+
+
+            _context.ContactUs.Add(Contact);
+            _context.SaveChanges();
+
+            return true;
+
+
+        }
+
+        public List<ContactU> GetContacts()
+        {
+           
+            var AllData = _context.ContactUs.ToList();
+
+            return AllData;
+
+        }
+
+
+        public bool AddNewRoom(RoomDTO room)
+        {
+            var NewRoom = new Room
+            {
+                RoomName = room.RoomName,
+                Capacity = room.Capacity,
+                RoomDescription = room.RoomDescription,
+                Image = room.ImagePath 
+            };
+
+            _context.Rooms.Add(NewRoom);
+            _context.SaveChanges();
+
+            return true;
+        }
+
+
+        public List<Room> GetAllRooms()
+        {
+
+            var AllData = _context.Rooms.ToList();
+
+            return AllData;
+
+        }
+
+
+
+        public bool AddAvailability(RoomAvailabilityDTO Addava)
+        {
+
+            if(Addava == null)
+            {
+                return false;
+            }
+
+
+            var NewAVA = new RoomAvailability
+            {
+
+                RoomId = Addava.RoomId,
+                AvailableDay = Addava.AvailableDay,
+                StartTime = Addava.StartTime,
+                EndTime = Addava.EndTime,
+                
+                
+            };
+
+            try
+            {
+                _context.RoomAvailabilities.Add(NewAVA);
+                _context.SaveChanges();
+            }catch(Exception ex)
+            {
+                return false;
+            }
+            
+
+            return true;
+        }
 
 
     }

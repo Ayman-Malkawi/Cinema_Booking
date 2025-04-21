@@ -18,6 +18,10 @@ import { AddCategoryComponent } from './Admin/add-category/add-category.componen
 import { ManageMovieComponent } from './Admin/manage-movie/manage-movie.component';
 import { EditMoviesComponent } from './Admin/edit-movies/edit-movies.component';
 import { AddMoviesComponent } from './Admin/add-movies/add-movies.component';
+import { ShowFeedBackComponent } from './Admin/show-feedback/show-feed-back.component';
+import { AddRoomsComponent } from './Admin/add-rooms/add-rooms.component';
+import { ShowAllRoomsComponent } from './Admin/show-all-rooms/show-all-rooms.component';
+import { RoomAvailabilityComponent } from './Admin/room-availability/room-availability.component';
 
 
 const routes: Routes = [
@@ -54,8 +58,10 @@ const routes: Routes = [
       { path: "ManageMovie", component: ManageMovieComponent },
       { path: "add-movie", component: AddMoviesComponent },
       { path: "edit-movie/:id", component: EditMoviesComponent },
-
-
+      { path: "Contact", component: ShowFeedBackComponent },
+      { path: "AddRoom", component: AddRoomsComponent },
+      { path: "ShowAllRoom", component: ShowAllRoomsComponent },
+      { path: "RoomAvailability/:id", component: RoomAvailabilityComponent }
     ]
   }
 

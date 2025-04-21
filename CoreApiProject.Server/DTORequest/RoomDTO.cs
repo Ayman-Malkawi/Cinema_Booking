@@ -1,0 +1,11 @@
+﻿namespace CoreApiProject.Server.DTORequest
+{
+    public class RoomDTO
+    {
+        public string? RoomName { get; set; }
+        public int? Capacity { get; set; }
+        public string? RoomDescription { get; set; }
+        public IFormFile? RoomImage { get; set; }
+        public string? ImagePath { get; set; } 
+    }
+}

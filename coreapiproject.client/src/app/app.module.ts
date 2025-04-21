@@ -30,6 +30,11 @@ import { RouterModule } from '@angular/router';
 import { ManageMovieComponent } from './Admin/manage-movie/manage-movie.component';
 import { AddMoviesComponent } from './Admin/add-movies/add-movies.component';
 import { EditMoviesComponent } from './Admin/edit-movies/edit-movies.component';
+import { ShowFeedBackComponent } from './Admin/show-feedback/show-feed-back.component';
+import { AddRoomsComponent } from './Admin/add-rooms/add-rooms.component';
+import { ShowAllRoomsComponent } from './Admin/show-all-rooms/show-all-rooms.component';
+import { RoomAvailabilityComponent } from './Admin/room-availability/room-availability.component';
+
 
 
 @NgModule({
@@ -59,6 +64,10 @@ import { EditMoviesComponent } from './Admin/edit-movies/edit-movies.component';
     ManageMovieComponent,
     AddMoviesComponent,
     EditMoviesComponent,
+    ShowFeedBackComponent,
+    AddRoomsComponent,
+    ShowAllRoomsComponent,
+    RoomAvailabilityComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,

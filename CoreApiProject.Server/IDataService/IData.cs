@@ -20,7 +20,7 @@ namespace CoreApiProject.Server.IDataService
         void EditCategory(int id, MovieCategoryDTO dto);
 
 
-
+        public bool AddNewRoom(RoomDTO room);
 
         public List<MovieDTO> GetAllMovies();
         
@@ -39,10 +39,13 @@ namespace CoreApiProject.Server.IDataService
         public Booking GetBookingById(int id);
         public void CancelBooking(int id);
 
+        public bool AddFeedBack(ContactDTO FeedBack);
 
 
+        public List<ContactU> GetContacts();
 
+        public List<Room> GetAllRooms();
 
-
+        public bool AddAvailability(RoomAvailabilityDTO Addava);
     }
 }

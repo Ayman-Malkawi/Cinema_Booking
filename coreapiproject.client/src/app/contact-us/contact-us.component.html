@@ -1,4 +1,4 @@
-<!-- ==========Banner-Section========== -->
+ ==========Banner-Section========== 
 <section class="main-page-header speaker-banner" style="background: url('assets/img/banner/banner-2.jpg');">
   <div class="container">
     <div class="speaker-banner-content">
@@ -16,8 +16,8 @@
     </div>
   </div>
 </section>
-<!-- ==========Banner-Section========== -->
-<!-- ==========Contact-Section========== -->
+ ==========Banner-Section========== 
+ ==========Contact-Section========== 
 <section class="contact-section padding-top">
   <div class="contact-container">
     <div class="bg-thumb" style="background: url('assets/img/contact/contact.jpg') no-repeat;"></div>
@@ -29,22 +29,26 @@
             <h2 class="title">get in touch</h2>
             <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking.</p>
           </div>
-          <form method="post" action="https://themes.themewild.com/ticket/assets/php/contact.php" id="contact-form" class="contact-form">
+          <form #ContactForm="ngForm" (ngSubmit)="Add_Contact(ContactForm.value)">
             <div class="form-group">
               <label for="name">Name <span>*</span></label>
-              <input type="text" placeholder="Enter Your Name" name="name" id="name" required>
+              <input type="text" placeholder="Enter Your Name" name="name" ngModel  id="name" required>
             </div>
             <div class="form-group">
               <label for="email">Email <span>*</span></label>
-              <input type="text" placeholder="Enter Your Email" name="email" id="email" required>
+              <input type="text" placeholder="Enter Your Email" name="email" ngModel  id="email" required>
+            </div>
+            <div class="form-group">
+              <label for="Phone">Phone <span>*</span></label>
+              <input type="text" placeholder="Enter Your phone" name="phone" ngModel  id="phone" required>
             </div>
             <div class="form-group">
               <label for="subject">Subject <span>*</span></label>
-              <input type="text" placeholder="Enter Your Subject" name="subject" id="subject" required>
+              <input type="text" placeholder="Enter Your Subject" name="subject" ngModel  id="subject" required>
             </div>
             <div class="form-group">
               <label for="message">Message <span>*</span></label>
-              <textarea name="message" id="message" placeholder="Enter Your Message" required></textarea>
+              <textarea name="message" id="message" placeholder="Enter Your Message" ngModel  required></textarea>
             </div>
             <div class="form-group">
               <input type="submit" value="Send Your Message">
@@ -83,8 +87,8 @@
     </div>
   </div>
 </section>
-<!-- ==========Contact-Section========== -->
-<!-- ==========Contact-Counter-Section========== -->
+ ==========Contact-Section========== 
+ ==========Contact-Counter-Section========== 
 <section class="contact-counter padding-top padding-bottom">
   <div class="container">
     <div class="row justify-content-center mb-30-none">
@@ -147,4 +151,4 @@
     </div>
   </div>
 </section>
-<!-- ==========Contact-Counter-Section========== -->
+ ==========Contact-Counter-Section========== 

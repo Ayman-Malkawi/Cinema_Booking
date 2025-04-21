@@ -12,6 +12,7 @@ builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
 
 
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -33,7 +34,10 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+
+
 app.UseDefaultFiles();
+
 app.UseStaticFiles();
 
 // Configure the HTTP request pipeline.

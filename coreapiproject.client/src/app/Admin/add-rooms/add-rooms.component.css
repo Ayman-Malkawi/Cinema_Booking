@@ -1,0 +1,151 @@
+/* التنسيقات العامة */
+.min-vh-80 {
+  min-height: 80vh;
+}
+
+.card {
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.card-header {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* تحسينات حقول الإدخال */
+.form-floating > label {
+  color: #6c757d;
+  padding: 0.5rem 0.75rem;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+  color: #007bff;
+  transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+}
+
+.form-control, .form-control:focus {
+  border-color: #ced4da;
+  box-shadow: none;
+}
+
+  .form-control:focus {
+    border-color: #007bff;
+  }
+
+/* تحسينات رفع الملفات */
+.file-upload-wrapper {
+  margin-bottom: 1rem;
+}
+
+.input-group-text {
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+
+/* تأثيرات الزر */
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  padding: 0.5rem 2rem;
+  transition: all 0.3s ease;
+}
+
+  .btn-primary:hover {
+    background-color: #0069d9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+  }
+
+/* تأثيرات البطاقة */
+.card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+
+
+/* تحسينات رفع الملفات */
+.file-upload-wrapper {
+  margin-bottom: 2rem;
+}
+
+.upload-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.upload-area {
+  border: 2px dashed #007bff;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: rgba(0, 123, 255, 0.05);
+  position: relative;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+  .upload-area.drag-active {
+    background-color: rgba(0, 123, 255, 0.1);
+    border-color: #0056b3;
+  }
+
+.upload-placeholder i {
+  color: #007bff;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.upload-placeholder h5 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.upload-preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.preview-image {
+  max-height: 180px;
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-change {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #007bff;
+  color: #007bff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+  .btn-change:hover {
+    background: #007bff;
+    color: white;
+  }
+
+/* تأثيرات عند التحويم */
+.upload-area:hover {
+  border-color: #0056b3;
+}
+
+  .upload-area:hover .upload-placeholder i {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
