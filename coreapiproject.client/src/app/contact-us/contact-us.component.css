@@ -1,0 +1,55 @@
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #111; /* خط أسود ناعم */
+}
+
+.form-group span {
+  color: #e63946;
+}
+
+.custom-textarea {
+  width: 100%;
+  min-height: 140px;
+  padding: 15px;
+  border: 1.5px solid #ddd; /* رمادي فاتح */
+  border-radius: 12px;
+  font-size: 16px;
+  color: #111; /* نص أسود ناعم */
+  background-color: #fff; /* خلفية بيضاء */
+  resize: vertical;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.04);
+}
+
+  .custom-textarea::placeholder {
+    color: #bbb; /* رمادي فاتح */
+    font-style: normal;
+  }
+
+  .custom-textarea:focus {
+    border-color: #4e8cff;
+    box-shadow: 0 0 8px rgba(78, 140, 255, 0.15);
+    background-color: #fff;
+    outline: none;
+  }
+.form-group[_ngcontent-ng-c2913777145] label[_ngcontent-ng-c2913777145] {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #ae7070;
+}
+.custom-textarea[_ngcontent-ng-c2913777145] {
+  width: 100%;
+  min-height: 140px;
+  padding: 15px;
+  border: 1.5px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #eeeeee;
+  background-color: #001232;
+  resize: vertical;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
+}

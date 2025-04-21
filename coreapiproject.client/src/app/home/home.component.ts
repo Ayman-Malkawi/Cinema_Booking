@@ -8,4 +8,12 @@ import { Component } from '@angular/core';
 export class HomeComponent {
 
 
+  ngOnInit(): void {
+    window.onload = () => {
+      console.log("Page fully loaded");
+      // هون بتحط أي أكشن بدك تعمله بعد تحميل الصفحة
+    }
+  }
+
+
 }

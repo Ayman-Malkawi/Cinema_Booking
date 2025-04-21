@@ -117,8 +117,10 @@ export class LogInComponent implements OnInit {
     this._ser.CheckUser(data).subscribe(
       (response: any) => {
         alert("Login successful!");
-        this.authService.logIn(response.id); // هنا نخزن id
-        this.router.navigate(['/']);
+        this.authService.logIn(response.id);
+        this.router.navigate(['/']).then(() => {
+          window.location.reload();
+        });
       },
       (error) => {
         alert(error.error.message || "An error occurred.");
