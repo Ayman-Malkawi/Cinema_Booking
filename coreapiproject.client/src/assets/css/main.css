@@ -1351,8 +1351,9 @@ body::-webkit-scrollbar-thumb {
 ==============================*/
 .catalog {
   position: relative;
-  padding: 40px 0 60px;
-  overflow: hidden;
+  padding: 40px 0 60px !important;
+  overflow: hidden !important;
+
 }
 .catalog:after {
   content: '';
@@ -1467,7 +1468,8 @@ body::-webkit-scrollbar-thumb {
   display: none;
 }
 .catalog--page {
-  padding-top: 20px;
+  padding-top: 20px !important;
+  margin-top: 100px;
 }
 @media (min-width: 768px) {
   .catalog {

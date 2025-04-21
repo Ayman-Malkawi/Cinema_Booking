@@ -9,6 +9,8 @@ import { CheckOutComponent } from './check-out/check-out.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { BookingForSeatComponent } from './booking-for-seat/booking-for-seat.component';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AddRatingForMoviesComponent } from './add-rating-for-movies/add-rating-for-movies.component';
 
 
 const routes: Routes = [
@@ -29,7 +31,10 @@ const routes: Routes = [
 
   { path: "Booking", component: BookingForSeatComponent },
 
-  { path: "register", component: RegisterComponent }
+  { path: "register", component: RegisterComponent },
+  { path: "profile", component: ProfileComponent },
+  { path: 'addRatingFormovies/:id', component:AddRatingForMoviesComponent },
+
 ];
 
 @NgModule({
