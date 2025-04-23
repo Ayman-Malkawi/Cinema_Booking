@@ -1,19 +1,16 @@
-<h1>ffffffffffffff</h1>
-
-
-<div class="container my-5">
+<!--<div class="container my-5">
   <div class="d-flex justify-content-between align-items-center mb-5">
-   
+
     <button class="btn btn-primary btn-lg rounded-pill" [routerLink]="'/admin/AddRoom'">
       <i class="fas fa-plus me-2"></i>Add New Room
     </button>
   </div>
 
-  <div class="row g-5">
-    <!-- Increased gap to g-5 -->
-    <div *ngFor="let Room of AllRooms" class="col-md-6 col-lg-4 mb-5">
-      <!-- Added mb-5 -->
-      <div class="card room-card h-100 border-0 shadow-lg overflow-hidden">
+  <div class="row g-5">-->
+<!-- Increased gap to g-5 -->
+<!--<div *ngFor="let Room of AllRooms" class="col-md-6 col-lg-4 mb-5">-->
+<!-- Added mb-5 -->
+<!--<div class="card room-card h-100 border-0 shadow-lg overflow-hidden">
         <div class="card-img-container">
           <img [src]="apiBaseUrl + 'images/rooms/' + Room.image"
                class="card-img-top"
@@ -44,4 +41,53 @@
       </div>
     </div>
   </div>
+</div>-->
+<div class="container my-5">
+  <!-- Header with Add Button -->
+  <div class="d-flex justify-content-between align-items-center mb-5">
+    <h2 class="fw-bold text-dark">📋 Room Management</h2>
+    <button class="btn btn-primary btn-lg rounded-pill px-4" [routerLink]="'/admin/AddRoom'">
+      <i class="fas fa-plus me-2"></i> Add New Room
+    </button>
+  </div>
+
+  <!-- Room Cards Grid -->
+  <div class="row g-4">
+    <div *ngFor="let Room of AllRooms" class="col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden room-card">
+
+        <!-- Room Image -->
+        <div class="ratio ratio-16x9">
+          <img [src]="Room.image" class="card-img-top object-fit-cover" alt="{{Room.roomName}}">
+        </div>
+
+        <!-- Room Info -->
+        <div class="card-body p-4 d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <h5 class="card-title fw-bold text-dark mb-0">{{ Room.roomName }}</h5>
+            <span class="custom-badge">
+              <i class="fas fa-users me-1"></i> {{ Room.capacity }}
+            </span>
+
+          </div>
+
+          <p class="card-text text-muted flex-grow-1">
+            {{ Room.roomDescription || 'Premium room with all amenities.' }}
+          </p>
+
+          <!-- Footer Actions -->
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <span class="text-primary small">
+              <i class="fas fa-expand me-1"></i> {{ Room.roomSize || 'Comfort' }}
+            </span>
+            <a class="btn btn-outline-primary rounded-pill px-3 py-1"
+               [routerLink]="['/admin/RoomAvailability', Room.id]">
+              <i class="far fa-calendar-alt me-1"></i> Availability
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+

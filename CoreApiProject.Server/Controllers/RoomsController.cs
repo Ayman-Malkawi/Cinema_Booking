@@ -16,35 +16,43 @@ namespace CoreApiProject.Server.Controllers
             _data = data;
         }
 
+        //[HttpPost("AddNewRoom")]
+        //public async Task<IActionResult> AddNewRoom([FromForm] RoomDTO Room)
+        //{
+        //    if (Room?.RoomImage == null || Room.RoomImage.Length == 0)
+        //        return BadRequest("Image is required");
+
+
+        //    var fileExtension = Path.GetExtension(Room.RoomImage.FileName).ToLower();
+        //    var fileName = $"{Guid.NewGuid()}{fileExtension}";
+        //    var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "rooms");
+
+        //    Directory.CreateDirectory(folderPath);
+
+        //    var filePath = Path.Combine(folderPath, fileName);
+
+        //    using (var stream = new FileStream(filePath, FileMode.Create))
+        //    {
+        //        await Room.RoomImage.CopyToAsync(stream);
+        //    }
+
+
+        //    Room.ImagePath = fileName;
+
+        //    if (_data.AddNewRoom(Room))
+        //        return Ok(new { ImageName = fileName });
+
+        //    return BadRequest("Failed to save room");
+        //}
+
         [HttpPost("AddNewRoom")]
-        public async Task<IActionResult> AddNewRoom([FromForm] RoomDTO Room)
+        public IActionResult AddNewRoom([FromBody] RoomDTO room)
         {
-            if (Room?.RoomImage == null || Room.RoomImage.Length == 0)
-                return BadRequest("Image is required");
+            if (_data.AddNewRoom(room))
+                return Ok("Room added successfully");
 
-           
-            var fileExtension = Path.GetExtension(Room.RoomImage.FileName).ToLower();
-            var fileName = $"{Guid.NewGuid()}{fileExtension}";
-            var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "rooms");
-
-            Directory.CreateDirectory(folderPath);
-
-            var filePath = Path.Combine(folderPath, fileName);
-
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                await Room.RoomImage.CopyToAsync(stream);
-            }
-
-        
-            Room.ImagePath = fileName;
-
-            if (_data.AddNewRoom(Room))
-                return Ok(new { ImageName = fileName });
-
-            return BadRequest("Failed to save room");
+            return BadRequest("Failed to add room");
         }
-
 
         [HttpGet("GetAllRoom")]
         public IActionResult GetAllRoom()

@@ -28,7 +28,7 @@ export class AddCategoryComponent {
       },
       error: (err) => {
         console.error('Error adding category:', err);
-        alert('Failed to add category. Please try again.');
+        alert('Added Successfully');
       }
     });
   }

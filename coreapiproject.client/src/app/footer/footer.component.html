@@ -50,29 +50,33 @@
               Your go-to platform for booking private cinema halls for your favorite movies, events, and special occasions. Enjoy a unique and unforgettable cinema experience!
             </p>
           </div>
+          <!-- Quick Links -->
           <div class="col-lg-3">
             <h5 class="footer-middle-title">Quick Links</h5>
-            <div class="footer-middle-link">
-              <a href="#">About Us</a>
-              <a href="#">Contact</a>
-              <a href="#">FAQ</a>
-              <a href="#">Terms & Conditions</a>
-              <a href="#">Privacy Policy</a>
-              <a href="#">Help Center</a>
+            <div class="footer-middle-link d-flex flex-column gap-2">
+              <a routerLink="/about">About Us</a>
+              <a routerLink="/contact">Contact</a>
+              <a routerLink="/faq">FAQ</a>
+              <a routerLink="/terms">Terms & Conditions</a>
+              <a routerLink="/terms">Privacy Policy</a> <!-- assuming same page -->
+              <a routerLink="/contact">Help Center</a> <!-- reuse contact for now -->
             </div>
           </div>
+
+          <!-- Browse -->
           <div class="col-lg-3">
             <h5 class="footer-middle-title">Browse</h5>
-            <div class="footer-middle-link">
-              <a href="#">Available Halls</a>
-              <a href="#">Upcoming Events</a>
-              <a href="#">Book a Hall</a>
-              <a href="#">Special Offers</a>
-              <a href="#">Customer Reviews</a>
-              <a href="#">Feedback</a>
+            <div class="footer-middle-link d-flex flex-column gap-2">
+
+
+              <a routerLink="/admin/AddRoom">Book a Hall</a>
+              <a routerLink="/movie">Special Offers</a> <!-- reuse movie listing -->
+         
+              <a routerLink="/contact">Feedback</a>
             </div>
           </div>
-          <div class="col-lg-3">
+
+          <!--<div class="col-lg-3">
             <h5 class="footer-middle-title">Get Our App</h5>
             <p class="footer-text">Book your favorite cinema halls on the go with our mobile app.</p>
             <div class="footer-middle-download">
@@ -80,7 +84,7 @@
               <a href="#"><img src="assets/img/app/google_play.jpg" alt=""></a>
               <a href="#"> <img src="assets/img/app/windows.jpg" alt=""></a>
             </div>
-          </div>
+          </div>-->
         </div>
       </div>
     </div>
@@ -90,25 +94,9 @@
     <div class="footer-bottom">
       <div class="footer-bottom-area">
         <div class="left">
-          <p>Copyright © <span id="date"></span>. All Rights Reserved By <a href="#">Ticket</a>.</p>
+          <p>Copyright © <span id="date"></span>. All Rights Reserved By <a routerLink="/">Ticket</a>.</p>
         </div>
-        <ul class="links">
-          <li>
-            <a routerLink="About">About</a>
-          </li>
-          <li>
-            <a routerLink="Terms">Terms Of Use</a>
-          </li>
-          <li>
-            <a href="#">Privacy Policy</a>
-          </li>
-          <li>
-            <a routerLink="faq">FAQ</a>
-          </li>
-          <li>
-            <a href="#">Feedback</a>
-          </li>
-        </ul>
+        
       </div>
     </div>
   </div>

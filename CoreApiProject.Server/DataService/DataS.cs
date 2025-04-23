@@ -143,24 +143,24 @@ namespace CoreApiProject.Server.DataService
         }
 
 
-        //public void DeleteCategory(int id, bool isAdmin)
-        //{
-        //    var category = _context.MovieCategories.Find(id);
+        public void DeleteCategory(int id, bool isAdmin)
+        {
+            var category = _context.MovieCategories.Find(id);
 
-        //    if (category != null)
-        //    {
-        //        if (isAdmin)
-        //        {
-        //            // فقط المشرف يمكنه حذف الفئة أو إخفاؤها
-        //            category.IsVisible = false; // إخفاء الفئة بدلاً من حذفها
-        //            _context.SaveChanges();
-        //        }
-        //        else
-        //        {
-        //            throw new UnauthorizedAccessException("Only admin can delete or hide categories.");
-        //        }
-        //    }
-        //}
+            if (category != null)
+            {
+                if (isAdmin)
+                {
+                    // فقط المشرف يمكنه حذف الفئة أو إخفاؤها
+                    category.IsVisible = false; // إخفاء الفئة بدلاً من حذفها
+                    _context.SaveChanges();
+                }
+                //else
+                //{
+                //    throw new UnauthorizedAccessException("Only admin can delete or hide categories.");
+                //}
+            }
+        }
 
 
 
@@ -372,7 +372,7 @@ namespace CoreApiProject.Server.DataService
                 RoomName = room.RoomName,
                 Capacity = room.Capacity,
                 RoomDescription = room.RoomDescription,
-                Image = room.ImagePath 
+                Image = room.Image // ✅ URL string
             };
 
             _context.Rooms.Add(NewRoom);
@@ -380,6 +380,7 @@ namespace CoreApiProject.Server.DataService
 
             return true;
         }
+
 
 
         public List<Room> GetAllRooms()
@@ -395,35 +396,28 @@ namespace CoreApiProject.Server.DataService
 
         public bool AddAvailability(RoomAvailabilityDTO Addava)
         {
-
-            if(Addava == null)
-            {
-                return false;
-            }
-
-
-            var NewAVA = new RoomAvailability
-            {
-
-                RoomId = Addava.RoomId,
-                AvailableDay = Addava.AvailableDay,
-                StartTime = Addava.StartTime,
-                EndTime = Addava.EndTime,
-                
-                
-            };
+            if (Addava == null) return false;
 
             try
             {
+                var NewAVA = new RoomAvailability
+                {
+                    //RoomId = Addava.RoomId,
+                    //PrivateRoomId = Addava.PrivateRoomId,
+                    AvailableDay = Addava.AvailableDay,
+                    StartTime = TimeOnly.Parse(Addava.StartTime!),
+                    EndTime = TimeOnly.Parse(Addava.EndTime!),
+                    //IsAvailable = true
+                };
+
                 _context.RoomAvailabilities.Add(NewAVA);
                 _context.SaveChanges();
-            }catch(Exception ex)
+                return true;
+            }
+            catch
             {
                 return false;
             }
-            
-
-            return true;
         }
 
 
@@ -542,13 +536,13 @@ namespace CoreApiProject.Server.DataService
                 .ThenInclude(ra => ra.Room)  // تأكد من تضمين البيانات المرتبطة بالغرف
                 .Select(pr => new PrivateRoomDTO1
                 {
-                    Id = pr.Id,
-                    // إزالة roomId لأنه تم حذفه من قاعدة البيانات
-                    RoomName = pr.RoomAvailabilities != null && pr.RoomAvailabilities.Any()
-                        ? pr.RoomAvailabilities.FirstOrDefault().Room != null
-                            ? pr.RoomAvailabilities.FirstOrDefault().Room.RoomName
-                            : null
-                        : null,
+                    //Id = pr.Id,
+                    //// إزالة roomId لأنه تم حذفه من قاعدة البيانات
+                    //RoomName = pr.RoomAvailabilities != null && pr.RoomAvailabilities.Any()
+                    //    ? pr.RoomAvailabilities.FirstOrDefault().Room != null
+                    //        ? pr.RoomAvailabilities.FirstOrDefault().Room.RoomName
+                    //        : null
+                    //    : null,
                     VIPName = pr.Vipname,
                     VIPDescription = pr.Vipdescription,
                     VIPPrice = pr.Vipprice ?? 0,
@@ -574,8 +568,8 @@ namespace CoreApiProject.Server.DataService
                 RoomAvailabilities = dto.Availability.Select(a => new RoomAvailability
                 {
                     AvailableDay = a.AvailableDay,
-                    StartTime = a.StartTime,
-                    EndTime = a.EndTime
+                    //StartTime = a.StartTime,
+                    //EndTime = a.EndTime
                 }).ToList()
             };
 
@@ -585,7 +579,7 @@ namespace CoreApiProject.Server.DataService
 
 
 
-        //avilablity 
+
         public List<PrivateRoomWithAvailabilityDto> GetPrivateRoomsWithAvailability()
         {
             var result = _context.PrivateRooms
@@ -608,12 +602,12 @@ namespace CoreApiProject.Server.DataService
                     // لا يتم تضمين RoomId هنا لأنه تم حذفه من قاعدة البيانات
                     Availability = r.RoomAvailabilities.Select(a => new RoomAvailabilityDTO
                     {
-                        Id = a.Id,
-                        // إزالة RoomId هنا لأنه غير موجود بعد الآن
-                        PrivateRoomId = a.PrivateRoomId,
+                        //Id = a.Id,
+                        //// إزالة RoomId هنا لأنه غير موجود بعد الآن
+                        //PrivateRoomId = a.PrivateRoomId,
                         AvailableDay = a.AvailableDay,
-                        StartTime = a.StartTime,
-                        EndTime = a.EndTime
+                        //StartTime = a.StartTime,
+                        //EndTime = a.EndTime
                     }).ToList()
                 })
                 .ToList();
@@ -645,8 +639,8 @@ namespace CoreApiProject.Server.DataService
                 {
                     PrivateRoomId = privateRoom.Id,
                     AvailableDay = availability.AvailableDay,
-                    StartTime = availability.StartTime,
-                    EndTime = availability.EndTime
+                    //StartTime = availability.StartTime,
+                    //EndTime = availability.EndTime
                 };
 
                 _context.RoomAvailabilities.Add(roomAvailability);

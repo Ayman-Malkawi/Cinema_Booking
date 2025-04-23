@@ -14,30 +14,44 @@ export class AddRoomsComponent {
   isDragging = false;
 
   constructor(private _ser: AUrlService) { }
-
-  // دالة إضافة الغرفة
   Add_Room(form: NgForm) {
-    if (form.valid && this.selectedFile) {
-      const formData = new FormData();
-      formData.append('RoomName', form.value.RoomName);
-      formData.append('Capacity', form.value.Capacity);
-      formData.append('RoomDescription', form.value.RoomDescription);
-      formData.append('RoomImage', this.selectedFile);
-
-      this._ser.AddNewRoom(formData).subscribe({
+    if (form.valid) {
+      this._ser.AddNewRoom(form.value).subscribe({
         next: () => {
           alert("Room added successfully!");
-          this.resetForm(form);
+          form.resetForm();
         },
         error: (err) => {
-          console.error('Error adding room:', err);
-          alert("Error occurred while adding room");
+          console.error('Error:', err);
+          alert("Failed to add room");
         }
       });
-    } else {
-      alert("Please fill all required fields and select an image");
     }
   }
+
+  //// دالة إضافة الغرفة
+  //Add_Room(form: NgForm) {
+  //  if (form.valid && this.selectedFile) {
+  //    const formData = new FormData();
+  //    formData.append('RoomName', form.value.RoomName);
+  //    formData.append('Capacity', form.value.Capacity);
+  //    formData.append('RoomDescription', form.value.RoomDescription);
+  //    formData.append('RoomImage', this.selectedFile);
+
+  //    this._ser.AddNewRoom(formData).subscribe({
+  //      next: () => {
+  //        alert("Room added successfully!");
+  //        this.resetForm(form);
+  //      },
+  //      error: (err) => {
+  //        console.error('Error adding room:', err);
+  //        alert("Error occurred while adding room");
+  //      }
+  //    });
+  //  } else {
+  //    alert("Please fill all required fields and select an image");
+  //  }
+  //}
 
   // دالة معالجة اختيار الملف
   onFileSelected(event: any): void {

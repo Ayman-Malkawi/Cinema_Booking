@@ -1,13 +1,94 @@
-<div class="container">
-  <h2 class="text-center my-4">🎟️ Seat Booking</h2>
+<!--<div class="container">
+  <h2 class="text-center my-4">🎟️ Seat Booking</h2>-->
+<!-- شبكة المقاعد -->
+<!--<div class="row justify-content-center">
+  <div *ngFor="let row of [].constructor(totalRows); let rowIndex = index" class="d-flex justify-content-center mb-2">
+    <button *ngFor="let col of [].constructor(seatsPerRow); let colIndex = index"
+            class="btn m-1"
+            [ngClass]="{
+              'btn-secondary': !selectedSeats.includes('R' + rowIndex + 'S' + colIndex),
+              'btn-success': selectedSeats.includes('R' + rowIndex + 'S' + colIndex)
+            }"
+            (click)="toggleSeat('R' + rowIndex + 'S' + colIndex)">
+      R{{ rowIndex + 1 }}S{{ colIndex + 1 }}
+    </button>
+  </div>
+</div>-->
+<!-- ملخص الحجز -->
+<!--<div class="mt-4 p-4 border bg-light rounded" *ngIf="selection">
+  <h5 class="text-primary">📋 Booking Summary</h5>
+  <p><strong>🎬 Movie:</strong> {{ selection.movieTitle || 'Not Specified' }}</p>
+  <p><strong>📅 Date:</strong> {{ selection.date | date:'fullDate' }}</p>
+  <p><strong>⏰ Time:</strong> {{ selection.time }}</p>
+  <p><strong>🎥 Screen:</strong> {{ selection.screen }}</p>
+  <p><strong>🪑 Selected Seats:</strong> {{ selectedSeats.length }} seat(s)</p>
+  <p><strong>🧾 Seat List:</strong> {{ selectedSeats.join(', ') || 'None' }}</p>
+  <p><strong>💰 Total Price:</strong> {{ getTotalPrice() }} JOD</p>
+</div>-->
+<!-- زر المتابعة -->
+<!--<div class="text-center mt-4">
+  <button class="btn btn-primary px-4" (click)="proceedToPayment()" [disabled]="selectedSeats.length === 0">
+    Proceed to Payment
+  </button>
+</div>-->
+<!--<div class="container mt-5">
+    <div class="p-4 rounded-4 shadow-sm bg-white border border-2 border-primary-subtle">
+      <h4 class="text-center mb-4 fw-bold text-gradient">📋 Booking Summary</h4>
 
-  <!-- شبكة المقاعد -->
-  <div class="row justify-content-center">
+      <ul class="list-group list-group-flush fs-6">
+        <li class="list-group-item">
+          <strong>🎬 Movie:</strong>
+          <span class="ms-2 text-dark">{{ selection.movieTitle || 'Not Specified' }}</span>
+        </li>
+        <li class="list-group-item">
+          <strong>📅 Date:</strong>
+          <span class="ms-2 text-dark">{{ selection.date | date:'fullDate' }}</span>
+        </li>
+        <li class="list-group-item">
+          <strong>⏰ Time:</strong>
+          <span class="ms-2 text-dark">{{ selection.time }}</span>
+        </li>
+        <li class="list-group-item">
+          <strong>🎥 Screen:</strong>
+          <span class="ms-2 text-dark">{{ selection.screen }}</span>
+        </li>
+        <li class="list-group-item">
+          <strong>🪑 Selected Seats:</strong>
+          <span class="ms-2 text-dark">{{ selectedSeats.length }} seat(s)</span>
+        </li>
+        <li class="list-group-item">
+          <strong>🧾 Seat List:</strong>
+          <span class="ms-2 text-dark">{{ selectedSeats.join(', ') || 'None' }}</span>
+        </li>
+        <li class="list-group-item bg-light fw-semibold fs-5 border-0 text-success">
+          <strong>💰 Total:</strong>
+          <span class="ms-2">{{ getTotalPrice() }} JOD</span>
+        </li>
+      </ul>
+
+      <div class="text-center mt-4">
+        <button class="btn btn-lg btn-success px-5 py-2 fw-semibold shadow rounded-pill"
+                [disabled]="selectedSeats.length === 0"
+                (click)="proceedToPayment()">
+          ✅ Proceed to Payment
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>-->
+<div class="container my-5 py-4">
+  <h2 class="text-center fw-bold text-primary mb-5 display-5">
+    🎟️ Select Your Seat
+  </h2>
+
+  <!-- Seat Grid -->
+  <div class="row justify-content-center mb-5">
     <div *ngFor="let row of [].constructor(totalRows); let rowIndex = index" class="d-flex justify-content-center mb-2">
       <button *ngFor="let col of [].constructor(seatsPerRow); let colIndex = index"
-              class="btn m-1"
+              class="btn seat-btn m-1"
               [ngClass]="{
-                'btn-secondary': !selectedSeats.includes('R' + rowIndex + 'S' + colIndex),
+                'btn-outline-secondary': !selectedSeats.includes('R' + rowIndex + 'S' + colIndex),
                 'btn-success': selectedSeats.includes('R' + rowIndex + 'S' + colIndex)
               }"
               (click)="toggleSeat('R' + rowIndex + 'S' + colIndex)">
@@ -16,22 +97,43 @@
     </div>
   </div>
 
-  <!-- ملخص الحجز -->
-  <div class="mt-4 p-4 border bg-light rounded" *ngIf="selection">
-    <h5 class="text-primary">📋 Booking Summary</h5>
-    <p><strong>🎬 Movie:</strong> {{ selection.movieTitle || 'Not Specified' }}</p>
-    <p><strong>📅 Date:</strong> {{ selection.date | date:'fullDate' }}</p>
-    <p><strong>⏰ Time:</strong> {{ selection.time }}</p>
-    <p><strong>🎥 Screen:</strong> {{ selection.screen }}</p>
-    <p><strong>🪑 Selected Seats:</strong> {{ selectedSeats.length }} seat(s)</p>
-    <p><strong>🧾 Seat List:</strong> {{ selectedSeats.join(', ') || 'None' }}</p>
-    <p><strong>💰 Total Price:</strong> {{ getTotalPrice() }} JOD</p>
-  </div>
+  <!-- Booking Summary -->
+  <div class="col-md-10 col-lg-8 mx-auto">
+    <div class="p-5 rounded-4 shadow booking-summary text-white">
+      <h4 class="text-center mb-4 fw-bold text-glow">📋 Booking Summary</h4>
 
-  <!-- زر المتابعة -->
-  <div class="text-center mt-4">
-    <button class="btn btn-primary px-4" (click)="proceedToPayment()" [disabled]="selectedSeats.length === 0">
-      Proceed to Payment
-    </button>
+      <ul class="list-group list-group-flush fs-5">
+        <li class="list-group-item bg-transparent border-light border-opacity-25 text-light py-3">
+          <strong>🎬 Movie:</strong> <span class="ms-2">{{ selection.movieTitle || 'Not Specified' }}</span>
+        </li>
+        <li class="list-group-item bg-transparent border-light border-opacity-25 text-light py-3">
+          <strong>📅 Date:</strong> <span class="ms-2">{{ selection.date | date:'fullDate' }}</span>
+        </li>
+        <li class="list-group-item bg-transparent border-light border-opacity-25 text-light py-3">
+          <strong>⏰ Time:</strong> <span class="ms-2">{{ selection.time }}</span>
+        </li>
+        <li class="list-group-item bg-transparent border-light border-opacity-25 text-light py-3">
+          <strong>🎥 Screen:</strong> <span class="ms-2">{{ selection.screen }}</span>
+        </li>
+        <li class="list-group-item bg-transparent border-light border-opacity-25 text-light py-3">
+          <strong>🪑 Seats:</strong> <span class="ms-2">{{ selectedSeats.length }} seat(s)</span>
+        </li>
+        <li class="list-group-item bg-transparent border-light border-opacity-25 text-light py-3">
+          <strong>🧾 Seat List:</strong> <span class="ms-2">{{ selectedSeats.join(', ') || 'None' }}</span>
+        </li>
+        <li class="list-group-item bg-dark text-warning fw-bold fs-3 rounded-3 mt-4 text-center shadow-sm border border-warning-subtle">
+          💰 Total: <span class="ms-2">{{ getTotalPrice() }} JOD</span>
+        </li>
+
+      </ul>
+
+      <div class="text-center mt-4">
+        <button class="btn btn-lg btn-warning px-5 py-2 fw-bold shadow rounded-pill"
+                [disabled]="selectedSeats.length === 0"
+                (click)="proceedToPayment()">
+          ✅ Confirm & Pay
+        </button>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,0 +1,177 @@
+/*body {
+  overflow-y: auto !important;*/ /* Allow scrolling */
+/*}
+
+.sign__input {
+  background-color: #151f30;
+  border: 1px solid #555;
+  border-radius: 12px;
+  height: 44px;
+  color: #fff;
+  font-size: 14px;
+  width: 100%;
+  padding: 0 20px;
+}
+body {
+  overflow-y: hidden;*/ /* يشيل السكروول العمودي */
+/*}
+
+.nav-tabs .nav-link {*/
+  /* margin-bottom: -1px; */
+  /*border: 0px solid transparent;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}
+
+  .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border-color: none;
+  }
+
+.sign__input {*/
+  /* background-color: #151f30; */
+  /*border: 1px solid #fff;
+  border-radius: 16px;
+  height: 44px;
+  position: relative;
+  color: #fff;
+  font-size: 14px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.fa-star {
+  color: #ccc;*/ /* نجمة غير مفعلة */
+/*}
+
+.checked {
+  color: gold;*/ /* النجمة المفعلة */
+/*}
+
+.custom-review-btn {
+  background: linear-gradient(135deg, #00c9ff, #92fe9d);
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+}
+
+  .custom-review-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #92fe9d, #00c9ff);
+    color: #000;
+  }*/
+/* Card container */
+.card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Header */
+.card-header {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Section headings */
+h4 {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Form inputs */
+.form-floating .form-control {
+  border-radius: 12px;
+  border: 1px solid #ced4da;
+  padding-left: 16px;
+}
+
+.form-floating label {
+  padding-left: 12px;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  font-weight: 500;
+  color: #212529;
+}
+
+.btn-outline-success {
+  border-radius: 50px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+  .btn-outline-success:hover {
+    background-color: #198754;
+    color: white;
+    border-color: #198754;
+  }
+
+/* Tables */
+.table th, .table td {
+  vertical-align: middle;
+  font-size: 0.95rem;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+.fa-star {
+  font-size: 1rem;
+  margin-right: 2px;
+}
+.list-group-item {
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+}
+/* Profile card wrapper */
+.profile-display {
+  background: #f5f7fa; /* soft gray-blue tone */
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 4rem; /* push it away from top */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  border-left: 6px solid #0d6efd; /* accent line */
+}
+
+  /* Title */
+  .profile-display h3 {
+    font-weight: 700;
+    color: #0d6efd;
+  }
+
+  /* List items */
+  .profile-display .list-group-item {
+    background-color: transparent;
+    border: none;
+    font-size: 1.05rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+    /* Labels */
+    .profile-display .list-group-item strong {
+      color: #495057;
+      width: 120px;
+      display: inline-block;
+    }

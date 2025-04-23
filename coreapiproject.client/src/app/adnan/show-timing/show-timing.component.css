@@ -1,4 +1,4 @@
-.timing-container {
+/*.timing-container {
   padding: 30px;
   max-width: 800px;
   margin: auto;
@@ -47,4 +47,218 @@
     background-color: #28a745;
     color: white;
     font-weight: bold;
+  }
+*/
+/* Full Container */
+.timing-container {
+  margin-top: 100px;
+  background: rgba(33, 37, 41, 0.95);
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  color: #f1f1f1;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+  /* Section Title */
+  .timing-container h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #00ffc6;
+    text-shadow: 0 2px 12px rgba(0, 255, 198, 0.4);
+  }
+
+/* Day Selector Buttons */
+.day-btn {
+  background-color: transparent;
+  border: 2px solid #0dcaf0;
+  color: #0dcaf0;
+  font-weight: 600;
+  border-radius: 40px;
+  padding: 10px 22px;
+  margin: 0.3rem;
+  transition: all 0.3s ease-in-out;
+}
+
+  .day-btn:hover,
+  .day-btn.active-day {
+    background-color: #0dcaf0;
+    color: #000;
+    box-shadow: 0 0 15px rgba(13, 202, 240, 0.5);
+  }
+
+/* Screen Header */
+.screen h4 {
+  text-align: center;
+  background-color: #222;
+  color: #00ffc6;
+  padding: 10px;
+  border-radius: 12px 12px 0 0;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Time Container */
+.times {
+  background-color: #1a1a1a;
+  padding: 1rem 1.5rem;
+  border-radius: 0 0 12px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Time Buttons */
+.time-btn {
+  background: #2c2f36;
+  border: 1px solid #6c757d;
+  color: #f8f9fa;
+  font-weight: 500;
+  font-family: 'Courier New', Courier, monospace;
+  border-radius: 12px;
+  padding: 10px 20px;
+  min-width: 80px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+  .time-btn::before {
+    content: '🕒';
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    font-size: 12px;
+    opacity: 0.6;
+  }
+
+  .time-btn:hover {
+    background-color: #00ffc6;
+    color: #000;
+    border-color: #00ffc6;
+    transform: scale(1.05);
+  }
+
+  .time-btn.selected-time {
+    background: #198754;
+    color: #fff;
+    font-weight: 600;
+    border-color: #198754;
+    box-shadow: 0 0 12px rgba(25, 135, 84, 0.5);
+  }
+
+/* Continue Button */
+.timing-container .btn-success {
+  background: linear-gradient(to right, #00ffc6, #0dcaf0);
+  border: none;
+  color: #000;
+  font-weight: bold;
+  padding: 14px 36px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  margin-top: 2.5rem;
+  transition: 0.3s;
+  box-shadow: 0 0 20px rgba(0, 255, 198, 0.25);
+}
+
+  .timing-container .btn-success:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(to right, #0dcaf0, #00ffc6);
+  }
+/* Entire Timing Container */
+.timing-container {
+  background: linear-gradient(145deg, #1c1f26, #232731);
+  color: #e0e0e0;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
+}
+
+/* Title Style */
+.text-gradient {
+  background: linear-gradient(to right, #00ffd5, #00bfff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Day Buttons */
+.day-btn {
+  transition: all 0.3s ease;
+  color: #0dcaf0;
+  border: 2px solid #0dcaf0;
+  background-color: transparent;
+}
+
+  .day-btn:hover,
+  .day-btn.active-day {
+    background-color: #0dcaf0;
+    color: #000;
+    box-shadow: 0 0 10px rgba(13, 202, 240, 0.5);
+  }
+
+/* Card for Each Screen */
+.screen-card {
+  background: #2b2f38;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+  .screen-card:hover {
+    transform: translateY(-5px);
+  }
+
+  /* Header for Each Screen Card */
+  .screen-card .card-header {
+    background: linear-gradient(to right, #00c9ff, #92fe9d);
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-bottom: none;
+    padding: 1rem 0.75rem;
+    box-shadow: 0 4px 8px rgba(0, 201, 255, 0.2);
+  }
+
+/* Time Button */
+.time-btn {
+  background: #212529;
+  border: 2px solid #6c757d;
+  color: #dee2e6;
+  font-weight: 500;
+  border-radius: 15px;
+  min-width: 80px;
+  transition: 0.25s ease;
+}
+
+  .time-btn:hover {
+    background-color: #0dcaf0;
+    color: #000;
+    border-color: #0dcaf0;
+    box-shadow: 0 4px 12px rgba(13, 202, 240, 0.3);
+  }
+
+/* Selected Time Style */
+.selected-time {
+  background-color: #20c997 !important;
+  color: #fff !important;
+  border-color: #20c997 !important;
+  font-weight: bold;
+  box-shadow: 0 0 12px rgba(32, 201, 151, 0.4);
+}
+
+/* Continue Button */
+.btn-success {
+  background: linear-gradient(to right, #00ffc6, #0dcaf0);
+  border: none;
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(0, 255, 198, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+  .btn-success:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(to right, #0dcaf0, #00ffc6);
   }

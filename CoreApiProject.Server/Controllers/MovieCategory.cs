@@ -46,12 +46,12 @@ namespace CoreApiProject.Server.Controllers
         }
 
 
-        //[HttpDelete("deleteCategory/{id}")]
-        //public IActionResult Delete(int id, [FromQuery] bool isAdmin = false)
-        //{
-        //    _data.DeleteCategory(id, isAdmin);
-        //    return Ok("Category deleted successfully");
-        //}
+        [HttpDelete("deleteCategory/{id}")]
+        public IActionResult Delete(int id, [FromQuery] bool isAdmin = false)
+        {
+            _data.DeleteCategory(id, isAdmin);
+            return Ok("Category deleted successfully");
+        }
 
 
 

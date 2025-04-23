@@ -35,19 +35,19 @@ namespace CoreApiProject.Server.Controllers
             }
         }
 
-        [HttpPost("AddPrivateRoom")]
-        public IActionResult AddPrivateRoom(PrivateRoomDTO1 dto)
-        {
-            try
-            {
-                _data.AddPrivateRoom(dto);
-                return CreatedAtAction(nameof(GetAllPrivateRooms), new { id = dto.Id }, dto);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
-        }
+        //[HttpPost("AddPrivateRoom")]
+        //public IActionResult AddPrivateRoom(PrivateRoomDTO1 dto)
+        //{
+        //    try
+        //    {
+        //        _data.AddPrivateRoom(dto);
+        //        return CreatedAtAction(nameof(GetAllPrivateRooms), new { id = dto.Id }, dto);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, $"Internal server error: {ex.Message}");
+        //    }
+        //}
 
 
 

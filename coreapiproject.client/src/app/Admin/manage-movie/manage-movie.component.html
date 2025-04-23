@@ -8,14 +8,20 @@
       <tr>
         <th>#</th>
         <th>Title</th>
+        <th>Image</th>
         <th>Category</th>
+
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let movie of movies; let i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{ movie.title }}</td>
+        <!--<td>{{ movie.title }}</td>-->
+        <td data-label="Title">{{ movie.title }}</td>
+        <td>
+          <img [src]="movie.image" alt="{{ movie.title }}" class="img-fluid rounded">
+        </td>
         <td>{{ movie.categoryName }}</td>
         <td>
           <button (click)="navigateToEditMovie(movie)" class="btn btn-sm btn-edit">
@@ -25,7 +31,7 @@
 
 
           <!-- زر Toggle Viable مع إضافة class لـ Bootstrap -->
-          <button (click)="toggleViable(movie.id)" class="btn btn-sm btn-info">Toggle Viable</button>
+          <!--<button (click)="toggleViable(movie.id)" class="btn btn-sm btn-info">Toggle Viable</button>-->
         </td>
       </tr>
     </tbody>

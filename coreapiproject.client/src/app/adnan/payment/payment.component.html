@@ -68,31 +68,24 @@
     <button class="btn btn-primary mt-4 w-100" (click)="submitPayment()">💸 Proceed to Payment</button>
   </div>
 </div>-->
-
-
-
-
-
-<div class="container mt-5">
+<!--<div class="container mt-5">
   <h2 class="text-center mb-4">💳 Payment</h2>
 
   <div class="card p-4 shadow-sm">
     <h5>🎬 Movie ID: {{ bookingData.movieId }}</h5>
     <p>🪑 Seats: {{ bookingData.seat1 }}, {{ bookingData.seat2 }}, {{ bookingData.seat3 }}</p>
-    <p>💰 Total Price: {{ bookingData.totalPrice }} JOD</p>
-
-    <!-- طريقة الدفع -->
-    <div class="form-group mt-3">
-      <label for="paymentMethod">Choose Payment Method:</label>
-      <select class="form-control" id="paymentMethod" [(ngModel)]="paymentMethod">
-        <option value="Credit Card">Credit Card</option>
-        <option value="Cash">Cash</option>
-        <option value="Orange Money">Orange Money</option>
-      </select>
-    </div>
-
-    <!-- ✅ إذا اختار بطاقة -->
-    <div *ngIf="paymentMethod === 'Credit Card'" class="mt-3">
+    <p>💰 Total Price: {{ bookingData.totalPrice }} JOD</p>-->
+<!-- طريقة الدفع -->
+<!--<div class="form-group mt-3">
+  <label for="paymentMethod">Choose Payment Method:</label>
+  <select class="form-control" id="paymentMethod" [(ngModel)]="paymentMethod">
+    <option value="Credit Card">Credit Card</option>
+    <option value="Cash">Cash</option>
+    <option value="Orange Money">Orange Money</option>
+  </select>
+</div>-->
+<!-- ✅ إذا اختار بطاقة -->
+<!--<div *ngIf="paymentMethod === 'Credit Card'" class="mt-3">
       <div class="form-group">
         <label>Cardholder Name</label>
         <input type="text" class="form-control" [(ngModel)]="cardInfo.name">
@@ -117,6 +110,135 @@
       💸 Proceed to Payment
     </button>
   </div>
-</div>
+</div>-->
+<!--<div class="container py-5">
+  <h2 class="text-center mb-5 text-gradient display-5 fw-bold">💳 Complete Your Payment</h2>
 
+  <div class="card border-0 shadow-lg rounded-4 px-4 py-5 bg-white">
+    <div class="mb-4">
+      <h4 class="fw-bold text-success mb-3">🎬 Booking Summary</h4>
+      <ul class="list-group list-group-flush fs-5">-->
+<!--<li class="list-group-item">
+  <strong>Movie:</strong>
+  <span *ngIf="movieTitle; else fallback">{{ movieTitle }}</span>
+  <ng-template #fallback>{{ bookingData.movieId }}</ng-template>
+</li>-->
+<!--<li class="list-group-item">
+      <strong>🪑 Seats:</strong> {{ bookingData.seat1 }}, {{ bookingData.seat2 }}, {{ bookingData.seat3 }}
+    </li>
+    <li class="list-group-item bg-light fw-semibold text-success">
+      <strong>💰 Total Price:</strong> {{ bookingData.totalPrice }} JOD
+    </li>
+  </ul>
+</div>-->
+<!-- Payment Method -->
+<!--<div class="mb-4">
+  <label for="paymentMethod" class="form-label fw-semibold">Choose Payment Method:</label>
+  <select class="form-select" id="paymentMethod" [(ngModel)]="paymentMethod">
+    <option value="Credit Card">Credit Card</option>
+    <option value="Cash">Cash</option>-->
+<!--<option value="Orange Money">Orange Money</option>-->
+<!--</select>
+</div>-->
+<!-- Credit Card Info -->
+<!--<div *ngIf="paymentMethod === 'Credit Card'" class="bg-light p-4 rounded-3 border">
+  <h5 class="fw-bold mb-3">💳 Credit Card Details</h5>
+
+  <div class="form-group mb-3">
+    <label class="form-label">Cardholder Name</label>
+    <input type="text" class="form-control" [(ngModel)]="cardInfo.name" placeholder="Full Name">
+  </div>
+
+  <div class="form-group mb-3">
+    <label class="form-label">Card Number</label>
+    <input type="text" class="form-control" maxlength="20" [(ngModel)]="cardInfo.number" placeholder="1234 5678 9012 3456">
+  </div>
+
+  <div class="row g-3">
+    <div class="col-md-6">
+      <label class="form-label">Expiry Date</label>
+      <input type="text" class="form-control" placeholder="MM/YY" [(ngModel)]="cardInfo.expiry">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">CVV</label>
+      <input type="text" class="form-control" maxlength="4" [(ngModel)]="cardInfo.cvv" placeholder="123">
+    </div>
+  </div>
+</div>-->
+<!-- Submit Button -->
+<!--<div class="text-center mt-5">
+      <button class="btn btn-lg btn-primary px-5 py-2 shadow fw-semibold rounded-pill" (click)="submitPayment()">
+        💸 Confirm & Pay
+      </button>
+    </div>
+  </div>
+</div>-->
+
+
+<div class="container py-5">
+  <h2 class="text-center mb-5 display-5 fw-bold text-light">💳 Complete Your Payment</h2>
+
+  <div class="card border-0 shadow-lg rounded-4 px-4 py-5" style="background-color: #1e1e2f;">
+    <div class="mb-4">
+      <h4 class="fw-bold text-warning mb-3">🎬 Booking Summary</h4>
+      <ul class="list-group list-group-flush fs-5">
+        <!--<li class="list-group-item bg-transparent text-white border-bottom border-secondary">
+          <strong>🎥 Movie:</strong>
+          <span *ngIf="movieTitle; else fallback">{{ movieTitle }}</span>
+          <ng-template #fallback>{{ bookingData.movieId }}</ng-template>
+        </li>-->
+        <li class="list-group-item bg-transparent text-white border-bottom border-secondary">
+          <strong>🪑 Seats:</strong> {{ bookingData.seat1 }}, {{ bookingData.seat2 }}, {{ bookingData.seat3 }}
+        </li>
+        <li class="list-group-item bg-dark text-success fw-semibold border-0 rounded mt-2">
+          <strong>💰 Total Price:</strong> {{ bookingData.totalPrice }} JOD
+        </li>
+      </ul>
+    </div>
+
+    <!-- Payment Method -->
+    <div class="mb-4">
+      <label for="paymentMethod" class="form-label fw-semibold text-white">Choose Payment Method:</label>
+      <select class="form-select bg-dark text-white border-secondary" id="paymentMethod" [(ngModel)]="paymentMethod">
+        <option value="Credit Card">Credit Card</option>
+        <option value="Cash">Cash</option>
+      </select>
+    </div>
+
+    <!-- Credit Card Info -->
+    <div *ngIf="paymentMethod === 'Credit Card'" class="p-4 rounded-3 border border-secondary bg-dark">
+      <h5 class="fw-bold text-light mb-3">💳 Credit Card Details</h5>
+
+      <div class="form-group mb-3">
+        <label class="form-label text-white">Cardholder Name</label>
+        <input type="text" class="form-control bg-secondary text-white" [(ngModel)]="cardInfo.name" placeholder="Full Name">
+      </div>
+
+      <div class="form-group mb-3">
+        <label class="form-label text-white">Card Number</label>
+        <input type="text" class="form-control bg-secondary text-white" maxlength="20" [(ngModel)]="cardInfo.number" placeholder="1234 5678 9012 3456">
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label text-white">Expiry Date</label>
+          <input type="text" class="form-control bg-secondary text-white" placeholder="MM/YY" [(ngModel)]="cardInfo.expiry">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label text-white">CVV</label>
+          <input type="text" class="form-control bg-secondary text-white" maxlength="3" [(ngModel)]="cardInfo.cvv" placeholder="123">
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-center mt-5">
+      <button class="btn btn-lg px-5 py-2 shadow rounded-pill fw-semibold"
+              style="background: linear-gradient(135deg, #00c9ff, #92fe9d); color: #000;"
+              (click)="submitPayment()">
+        💸 Confirm & Pay
+      </button>
+    </div>
+  </div>
+</div>
 

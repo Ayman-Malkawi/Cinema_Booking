@@ -22,7 +22,7 @@ namespace CoreApiProject.Server.IDataService
         public List<MovieCategoryDTO> GetAllCategories(bool isAdmin);
 
         public void AddCategory(MovieCategoryDTO dto);
-        //public void DeleteCategory(int id, bool isAdmin);
+        public void DeleteCategory(int id, bool isAdmin);
 
         public void EditCategory(int id, MovieCategoryDTO dto);
 

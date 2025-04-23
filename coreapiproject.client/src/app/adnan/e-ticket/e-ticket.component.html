@@ -1,4 +1,4 @@
-<div class="cardWrap" *ngIf="bookingData">
+<!--<div class="cardWrap" *ngIf="bookingData">
   <div class="card cardLeft">
     <h1>Startup <span>Cinema</span></h1>
 
@@ -30,5 +30,44 @@
       <span>SEAT</span>
     </div>
     <div class="barcode"></div>
+  </div>
+</div>-->
+<div class="container my-5">
+  <div class="ticket-wrapper d-flex flex-column flex-md-row justify-content-center align-items-stretch">
+    <div class="ticket ticket-left bg-dark text-white p-4 rounded-start shadow">
+      <h2 class="ticket-brand text-warning">🎟️ Startup <span class="text-white">Cinema</span></h2>
+
+      <div class="ticket-detail my-3">
+        <h5 class="text-uppercase mb-1">🎬 Movie</h5>
+        <p class="fs-5 fw-semibold">{{ bookingData.movie || 'Oppenheimer' }}</p>
+      </div>
+
+      <div class="ticket-detail mb-3">
+        <h5 class="text-uppercase mb-1">👤 Name</h5>
+        <p class="fs-5">{{ bookingData.name || 'Habib' }}</p>
+      </div>
+      <hr />
+      <div class="ticket-detail mb-3">
+        <h5 class="text-uppercase mb-1">🪑 Seat(s)</h5>
+        <p class="fs-5">{{ bookingData.seat1 || '' }}{{ bookingData.seat2 ? ', ' + bookingData.seat2 : '' }}{{ bookingData.seat3 ? ', ' + bookingData.seat3 : '' }}</p>
+      </div>
+
+      <div class="ticket-detail">
+        <h5 class="text-uppercase mb-1">⏰ Time</h5>
+        <p class="fs-5">{{ bookingData.startTime || '--:--' }}</p>
+      </div>
+    </div>
+
+    <div class="ticket ticket-right bg-light text-center p-4 rounded-end shadow d-flex flex-column justify-content-between">
+      <div class="barcode-box my-3">
+        <div class="barcode bg-dark mx-auto" style="width: 100px; height: 100px; border-radius: 10px;"></div>
+        <p class="text-muted mt-2 small">Scan on Entry</p>
+      </div>
+
+      <!--<div class="seat-highlight mt-auto">
+        <p class="fw-bold fs-4 text-danger">{{ bookingData.seat1 || '--' }}</p>
+        <span class="text-muted">Seat Code</span>
+      </div>-->
+    </div>
   </div>
 </div>

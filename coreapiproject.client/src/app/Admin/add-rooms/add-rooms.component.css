@@ -1,5 +1,5 @@
 /* التنسيقات العامة */
-.min-vh-80 {
+/*.min-vh-80 {
   min-height: 80vh;
 }
 
@@ -11,10 +11,10 @@
 .card-header {
   font-weight: 600;
   letter-spacing: 0.5px;
-}
+}*/
 
 /* تحسينات حقول الإدخال */
-.form-floating > label {
+/*.form-floating > label {
   color: #6c757d;
   padding: 0.5rem 0.75rem;
 }
@@ -32,20 +32,20 @@
 
   .form-control:focus {
     border-color: #007bff;
-  }
+  }*/
 
 /* تحسينات رفع الملفات */
-.file-upload-wrapper {
+/*.file-upload-wrapper {
   margin-bottom: 1rem;
 }
 
 .input-group-text {
   background-color: #f8f9fa;
   cursor: pointer;
-}
+}*/
 
 /* تأثيرات الزر */
-.btn-primary {
+/*.btn-primary {
   background-color: #007bff;
   border: none;
   padding: 0.5rem 2rem;
@@ -56,17 +56,17 @@
     background-color: #0069d9;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
-  }
+  }*/
 
 /* تأثيرات البطاقة */
-.card:hover {
+/*.card:hover {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
-}
+}*/
 
 
 
 /* تحسينات رفع الملفات */
-.file-upload-wrapper {
+/*.file-upload-wrapper {
   margin-bottom: 2rem;
 }
 
@@ -138,14 +138,28 @@
   .btn-change:hover {
     background: #007bff;
     color: white;
-  }
+  }*/
 
 /* تأثيرات عند التحويم */
-.upload-area:hover {
+/*.upload-area:hover {
   border-color: #0056b3;
 }
 
   .upload-area:hover .upload-placeholder i {
     opacity: 1;
     transform: translateY(-5px);
-  }
+  }*/
+
+input::placeholder,
+textarea::placeholder {
+  color: #adb5bd;
+  font-style: italic;
+}
+
+textarea {
+  resize: none;
+}
+
+.card {
+  border-radius: 16px;
+}

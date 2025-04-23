@@ -10,7 +10,7 @@ export class ETicketComponent {
   bookingData: any;
 
   ngOnInit(): void {
-    const stored = localStorage.getItem('bookingWithSeats');
+    const stored = localStorage.getItem('bookingSelection');
     if (stored) {
       this.bookingData = JSON.parse(stored);
     }

@@ -120,9 +120,7 @@
             <li>
               <a routerLink="About"><i class="fal fa-long-arrow-alt-right"></i>About Us</a>
             </li>
-            <li>
-              <a href="team.html"><i class="fal fa-long-arrow-alt-right"></i>Team</a>
-            </li>
+          
 
             <!-- Show only if NOT logged in -->
             <li *ngIf="!isLoggedIn">
@@ -134,15 +132,15 @@
 
             <!-- Show only if logged in -->
             <li *ngIf="isLoggedIn">
-              <a routerLink="/Profile"><i class="fal fa-long-arrow-alt-right"></i>Profile</a>
+              <a routerLink="/profile"><i class="fal fa-long-arrow-alt-right"></i>Profile</a>
             </li>
             <li *ngIf="isLoggedIn">
               <a (click)="logout()" style="cursor: pointer;"><i class="fal fa-long-arrow-alt-right"></i>Logout</a>
             </li>
 
-            <li>
+            <!--<li>
               <a href="forgot-password.html"><i class="fal fa-long-arrow-alt-right"></i>Forgot Password</a>
-            </li>
+            </li>-->
             <li>
               <a routerLink="faq"><i class="fal fa-long-arrow-alt-right"></i>Faq</a>
             </li>
@@ -160,7 +158,7 @@
           <a routerLink="/LogIn">Join Us</a>
         </li>
         <li class="header-button pr-0" *ngIf="isLoggedIn">
-          <a routerLink="/Profile">My Profile</a>
+          <a routerLink="/profile">My Profile</a>
         </li>
       </ul>
 

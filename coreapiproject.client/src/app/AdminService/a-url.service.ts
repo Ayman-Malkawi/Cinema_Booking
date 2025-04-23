@@ -49,10 +49,14 @@ export class AUrlService {
     return this.http.post<any>(`${this.categoryApi}/addCategory`, category);
   }
 
-  // لحذف فئة
+  //// لحذف فئة
+  //deleteCategory(categoryId: number): Observable<any> {
+  //  return this.http.delete<any>(`${this.categoryApi}/deleteCategory/${categoryId}`);
+  //}
   deleteCategory(categoryId: number): Observable<any> {
-    return this.http.delete<any>(`${this.categoryApi}/deleteCategory/${categoryId}`);
+    return this.http.delete<any>(`${this.categoryApi}/deleteCategory/${categoryId}?isAdmin=false`);
   }
+
 
   // لتعديل فئة
   editCategory(categoryId: number, category: any): Observable<any> {

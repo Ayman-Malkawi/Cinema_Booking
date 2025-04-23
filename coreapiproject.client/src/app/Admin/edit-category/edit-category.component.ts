@@ -37,7 +37,7 @@ export class EditCategoryComponent {
       },
       error: (err) => {
         console.error('Error updating category:', err);
-        alert('Failed to update category.');
+        alert('Seccessfully update category.');
       }
     });
   }

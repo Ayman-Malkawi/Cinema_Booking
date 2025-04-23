@@ -1,0 +1,87 @@
+/* Card container */
+.elegant-card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* Table wrapper */
+.elegant-table {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.95rem;
+  color: #343a40;
+}
+
+/* Table header */
+.table-header {
+  background-color: #f8f9fa;
+  font-weight: 700;
+  color: #495057;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+  /* Header cells */
+  .table-header th {
+    padding: 16px 12px;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+/* Row styling */
+.table-row:hover {
+  background-color: #f7fafd;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Serial cell styling */
+.serial-cell .badge {
+  background-color: #e2e6ea;
+  color: #212529;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  border-radius: 50%;
+}
+
+/* Category name styling */
+.name-cell span {
+  font-size: 1rem;
+  color: #212529;
+}
+
+/* Action buttons */
+.actions-cell .btn-edit,
+.actions-cell .btn-delete {
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.actions-cell .btn-edit {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+.actions-cell .btn-delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+/* Responsive fix */
+@media (max-width: 768px) {
+  .elegant-card {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .table-header th,
+  .table-row td {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+}

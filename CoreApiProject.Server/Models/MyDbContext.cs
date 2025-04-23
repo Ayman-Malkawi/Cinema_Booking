@@ -45,7 +45,7 @@ public partial class MyDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=DESKTOP-R8LTBNV;Database=CinemaDB;Trusted_Connection=True;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Server=MAC3CAC;Database=CinemaDB;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -56,7 +56,7 @@ public partial class MyDbContext : DbContext
             entity.ToTable("Blacklist");
 
             entity.Property(e => e.Reason).HasMaxLength(255);
-
+            
             entity.HasOne(d => d.User).WithMany(p => p.Blacklists)
                 .HasForeignKey(d => d.UserId)
                 .HasConstraintName("FK__Blacklist__UserI__5CD6CB2B");

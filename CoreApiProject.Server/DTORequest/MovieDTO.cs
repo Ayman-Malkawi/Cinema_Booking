@@ -12,5 +12,6 @@
         public string Image { get; set; }
         public decimal TicketPrice { get; set; }
         public int Rating { get; set; } // التقييم
+        public bool IsVisible { get; set; } = true; // ✅ Add this line
     }
 }

@@ -1,92 +1,89 @@
-<div class="d-flex justify-content-center align-items-center min-vh-80 py-5">
-  <div class="col-lg-6 col-md-8 col-12">
-    <div class="card shadow-lg border-0 rounded-3 overflow-hidden">
-      <div class="card-header bg-primary text-white py-3">
-        <h3 class="mb-0 text-center">
-         Add New Room
-        </h3>
-      </div>
+<!--<form #RoomForm="ngForm" (ngSubmit)="Add_Room(RoomForm)">
+  <div class="mb-3">
+    <label>Room Name</label>
+    <input type="text" class="form-control" name="RoomName" ngModel required />
+  </div>
 
-      <div class="card-body p-4">
-        <form #RoomForm="ngForm" (ngSubmit)="Add_Room(RoomForm)" class="needs-validation" novalidate>
-          <div class="row g-3">
+  <div class="mb-3">
+    <label>Capacity</label>
+    <input type="number" class="form-control" name="Capacity" ngModel required />
+  </div>
+
+  <div class="mb-3">
+    <label>Room Description</label>
+    <textarea class="form-control" name="RoomDescription" ngModel></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label>Image URL</label>
+    <input type="text" class="form-control" name="Image" ngModel required />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Save Room</button>
+</form>-->
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-primary text-white text-center py-4">
+          <h3 class="mb-0">
+            <i class="fas fa-door-open me-2"></i> Add New Room
+          </h3>
+        </div>
+
+        <div class="card-body p-4">
+          <form #RoomForm="ngForm" (ngSubmit)="Add_Room(RoomForm)">
             <!-- Room Name -->
-            <div class="col-md-12">
-              <div class="form-floating">
-                <input type="text" class="form-control"
-                       id="RoomName" name="RoomName" ngModel
-                       placeholder="Room Name" required>
-                <label for="RoomName">Room Name</label>
-              </div>
+            <div class="mb-4">
+              <label class="form-label fw-bold text-primary">Room Name</label>
+              <input type="text"
+                     class="form-control rounded-pill px-4"
+                     name="RoomName"
+                     ngModel
+                     placeholder="Enter room name"
+                     required />
             </div>
 
             <!-- Capacity -->
-            <div class="col-md-6">
-              <div class="form-floating">
-                <input type="number" class="form-control"
-                       id="Capacity" name="Capacity" ngModel
-                       placeholder="Capacity" required min="1">
-                <label for="Capacity">Capacity</label>
-              </div>
+            <div class="mb-4">
+              <label class="form-label fw-bold text-primary">Capacity</label>
+              <input type="number"
+                     class="form-control rounded-pill px-4"
+                     name="Capacity"
+                     ngModel
+                     placeholder="Number of people"
+                     required />
             </div>
-
-            
 
             <!-- Description -->
-            <div class="col-12">
-              <div class="form-floating">
-                <textarea class="form-control" style="height: 100px"
-                          id="RoomDescription" name="RoomDescription" ngModel
-                          placeholder="Room Description"></textarea>
-           
-              </div>
+            <div class="mb-4">
+              <label class="form-label fw-bold text-primary">Room Description</label>
+              <textarea class="form-control rounded-3 px-4 py-2"
+                        rows="3"
+                        name="RoomDescription"
+                        ngModel
+                        placeholder="Describe the room"></textarea>
             </div>
 
-            <!-- Image Upload -->
-            <div class="col-12">
-              <div class="file-upload-wrapper">
-                <label class="form-label d-block text-center mb-3">
-                  <i class="fas fa-camera me-2"></i>Room Image
-                </label>
-
-                <div class="upload-container">
-                  <div class="upload-area"
-                       (click)="fileInput.click()"
-                       (drop)="onDrop($event)"
-                       (dragover)="onDragOver($event)"
-                       (dragleave)="onDragLeave($event)"
-                       [class.drag-active]="isDragging">
-
-                    <div *ngIf="!previewUrl" class="upload-placeholder">
-                      <i class="fas fa-cloud-upload-alt fa-3x mb-3"></i>
-                      <h5>Drag & Drop Your Image</h5>
-                      <p class="text-muted">or click to browse files</p>
-                      <small class="text-muted">Supports: JPG, PNG (Max 5MB)</small>
-                    </div>
-
-                    <div *ngIf="previewUrl" class="upload-preview">
-                      <img [src]="previewUrl" alt="Preview" class="preview-image">
-                      <button class="btn btn-change" (click)="fileInput.click()">
-                        <i class="fas fa-sync-alt me-1"></i>Change
-                      </button>
-                    </div>
-
-                    <input #fileInput type="file" class="d-none"
-                           (change)="onFileSelected($event)"
-                           accept="image/*">
-                  </div>
-                </div>
-              </div>
+            <!-- Image URL -->
+            <div class="mb-4">
+              <label class="form-label fw-bold text-primary">Image URL</label>
+              <input type="text"
+                     class="form-control rounded-pill px-4"
+                     name="Image"
+                     ngModel
+                     placeholder="https://example.com/image.jpg"
+                     required />
             </div>
 
-            <!-- Submit Button -->
-            <div class="col-12 text-center mt-4">
-              <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5">
-                <i class="fas fa-save me-2"></i>Save Room
+            <!-- Submit -->
+            <div class="d-grid mt-4">
+              <button type="submit" class="btn btn-primary btn-lg rounded-pill">
+                <i class="fas fa-save me-2"></i> Save Room
               </button>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   </div>

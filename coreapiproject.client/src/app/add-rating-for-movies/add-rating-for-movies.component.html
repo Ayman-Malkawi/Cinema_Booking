@@ -1,11 +1,14 @@
 <div class="container mt-5 rating-box-custom">
   <h2 class="mb-4 text-center text-white">⭐ Rate the Movie</h2>
 
-  <div class="movie-title mb-3 text-white text-center">
+  <!--<div class="movie-title mb-3 text-white text-center">
     <label class="form-label text-light">🎬 Select a Movie</label>
     <select class="form-select custom-select" [(ngModel)]="movieId" name="movieId">
       <option *ngFor="let movie of movies" [ngValue]="movie.id">{{ movie.title }}</option>
     </select>
+  </div>-->
+  <div class="movie-title mb-4 text-center bg-dark text-white p-3 rounded shadow">
+    <h4 class="mb-0">🎬 Movie: <span class="text-warning fw-bold">Oppenheimer</span></h4>
   </div>
 
   <div class="stars d-flex justify-content-center mb-4">
